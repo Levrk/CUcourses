@@ -4,11 +4,11 @@
 <link rel="stylesheet" type="text/css" href="{% static 'reviewDetails.css' %}">
 
 <div class="box"> 
-<h1> Review for {{review.classCode}} - "{{review.className}}" </h1>
-{% if review.anon == true %}
-    <p>posted by {{review.user}}</p>
+<h1> Review for {{review.course.courseCode}} - "{{review.course.courseName}}" </h1>
+{% if review.anon %}
+    <p>posted by "Anonymous"</p>
 {% else %}
-    <p> posted by "Anonymous"</p>
+    <p>posted by {{review.user}}</p>
 {% endif %}
 
 <h3> {{review.reviewText}} </h3>
