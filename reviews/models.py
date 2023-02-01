@@ -7,9 +7,12 @@ class review(models.Model):
     classCode = models.CharField(max_length=10)
     className = models.CharField(max_length=40)
     instructor = models.CharField(max_length=30)
-    reviewText = models.TextField(null=False, blank=False)
+    reviewText = models.TextField(max_length=250, null=False)
     anon = models.BooleanField(default=True)
     create = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.className
+        return self.classCode
+    
+    class Meta:
+        ordering = ['create']
