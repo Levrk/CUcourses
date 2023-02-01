@@ -6,13 +6,14 @@ class review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     classCode = models.CharField(max_length=10)
     className = models.CharField(max_length=40)
+    dept = models.CharField(max_length=40,null=True) 
     instructor = models.CharField(max_length=30)
     reviewText = models.TextField(max_length=250, null=False)
     anon = models.BooleanField(default=True)
-    create = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.classCode
     
     class Meta:
-        ordering = ['create']
+        ordering = ['created']
