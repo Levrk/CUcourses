@@ -1,9 +1,10 @@
 from django.urls import path
-from .views import reviewList
+from .views import allReviews
+from .views import reviewDetails
 from .models import review
 
 urlpatterns = [
 
-path("", reviewList.as_view(), name='reviews')
-
+path("", allReviews.as_view(), name='reviews'),
+path("review/<int:pk>/", reviewDetails.as_view(), name='review')
 ]

@@ -1,0 +1,15 @@
+<h1> All reviews</h1>
+
+<table>
+<tr>
+<th> Item</th>
+</tr>
+{% for review in reviews%}  
+<tr>
+<td>{{review}}</td>
+<td><a href="{%url 'review' review.id %}"> View</a></td>
+</tr>
+{% empty %}
+    <h3>Empty List</h3>
+{% endfor %}
+</table>
