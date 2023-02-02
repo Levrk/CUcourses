@@ -1,12 +1,10 @@
 from django.urls import path
-from .views import allReviews
-from .views import reviewDetails
-from .models import review
-from .models import course
-from .models import department
+from .views import allReviews, reviewDetails, createReview
+from .models import review, department, course
 
 urlpatterns = [
 
 path("", allReviews.as_view(), name='reviews'),
-path("review/<int:pk>/", reviewDetails.as_view(), name='review')
+path("review/<int:pk>/", reviewDetails.as_view(), name='review'),
+path("create-review/", createReview.as_view(), name='create-review')
 ]
