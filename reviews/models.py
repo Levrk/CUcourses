@@ -20,7 +20,7 @@ class course(models.Model):
     
 class review(models.Model):
     #nulls should be false in production
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default="Anonymous")
     course = models.ForeignKey(course,on_delete=models.CASCADE,null=True)
     instructor = models.CharField(max_length=30)
     reviewText = models.TextField(max_length=800, null=False)
