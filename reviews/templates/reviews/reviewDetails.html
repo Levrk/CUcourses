@@ -1,5 +1,6 @@
 <a href="{{request.META.HTTP_REFERER}}">Go back</a>
 <html>
+<head>
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'reviewDetails.css' %}">
 
@@ -14,5 +15,5 @@
 <h3> {{review.reviewText}} </h3>
 
 </div>
-
+</head>
 </html>
