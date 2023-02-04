@@ -1,16 +1,21 @@
-
-<h1> All reviews</h1>
+<html>
+    {% load static %}
+<link rel="stylesheet"  type="text/css" href="{% static 'allReviews.css' %}">
+<h1> All Reviews</h1>
+<div class="button">
 <a href="{% url 'create-review' %}">Submit a Review</a>
+</div>
 <table>
 <tr>
-<th> </th>
 </tr>
 {% for review in reviews%}  
 <tr>
-<td>{{review}}</td>
+<td>{{review}}       - Posted       {{review.created}}</td>
 <td><a href="{%url 'review' review.id %}"> View</a></td>
 </tr>
 {% empty %}
     <h3>Empty List</h3>
 {% endfor %}
 </table>
+
+</html>
