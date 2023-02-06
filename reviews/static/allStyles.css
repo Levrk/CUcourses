@@ -1,0 +1,52 @@
+body{
+    background-color: aliceblue;
+    }
+
+h1 {
+    text-align: center;
+    }
+    
+form {
+text-align: center;
+background-image: linear-gradient( #bdd0e4, #c7dcbb);
+padding: 1.5cm;
+}
+
+table {
+    background-image: linear-gradient( #bdd0e4, #c7dcbb);
+    font-family: Arial, sans-serif;
+    width: 100%;
+    border-collapse: collapse;
+    }
+    
+    td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    border-radius: 3%;
+    }
+    
+/* User defined classes */
+.box {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: solid 3px black;
+    background-image: linear-gradient( #bdd0e4, #c7dcbb);
+    text-align: center;
+    border-radius: 2%;
+}
+
+.box:hover { 
+    border-style : dotted;
+    }
+
+.button {
+
+    text-align: center;
+    padding: 1cm;
+    font-size: large;
+
+}
+    
