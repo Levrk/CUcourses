@@ -9,8 +9,9 @@ h1 {
 form {
 text-align: center;
 background-image: linear-gradient( #bdd0e4, #c7dcbb);
-padding: 1.5cm;
+padding: 1cm;
 }
+
 
 table {
     background-image: linear-gradient( #bdd0e4, #c7dcbb);
@@ -49,4 +50,3 @@ table {
     font-size: large;
 
 }
-    

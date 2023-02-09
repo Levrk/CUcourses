@@ -16,7 +16,7 @@ class course(models.Model):
     dept = models.ForeignKey(department,on_delete=models.CASCADE,null=True)
     
     def __str__(self):
-        return self.courseName
+        return self.courseCode
     
 class review(models.Model):
     #nulls should be false in production
@@ -29,6 +29,9 @@ class review(models.Model):
 
     def __str__(self):
         return str(self.course)
+
+    def snippet (self):
+        return "\"" + self.reviewText[:150] + "...\""
     
     class Meta:
         ordering = ['created']
