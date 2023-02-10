@@ -8,11 +8,24 @@ from .models import review, course
 # Create your views here.
 
 class allReviews(ListView):
+    """
+    Displays a list of all reviews
+    
+    Context variable in template -> "reviews"
+    Template file -> "reviews/allReviews.html"
+    """
     model = review
     context_object_name = "reviews"
     template_name = "reviews/allReviews.html"
 
+
 class searchReviews(ListView):
+     """
+    Displays a list of reviews based on query
+    
+    Context variable in template -> "reviews" 
+    Template file -> "reviews/searchReviews.html"
+    """
     model = review
     context_object_name = "reviews"
     template_name = "reviews/searchReviews.html"
@@ -30,16 +43,28 @@ class searchReviews(ListView):
         courses = course.objects.filter(courseCode=course_code)
         queryset = review.objects.filter(course__in=courses)
         return queryset
-#select * from reviews_review;
-#WHERE course_id IN (SELECT id from reviews_course WHERE courseCode = "CSCI121");
+
 
 class reviewDetails(DetailView):
+    """
+    Displays details of a single review
+    
+    Context variable in template -> "review" 
+    Template file -> "reviews/reviewDetails.html"
+    """
     model = review
     context_object_name = "review"
     template_name = "reviews/reviewDetails.html"
 
 class createReview(CreateView):
+    """
+    Displays a form for submitting a new review
+    
+    Context variable in template -> "review" 
+    Template file -> "reviews/Review_form.html"
+    """
+    context_object_name = "review"
     model = review
     fields = '__all__'
-    ##below is where we send the user after succesfully submitting form
+    ##below is where we send the user after successfully submitting form
     success_url = reverse_lazy('reviews')
