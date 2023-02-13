@@ -20,7 +20,7 @@ class allReviews(ListView):
 
 
 class searchReviews(ListView):
-     """
+    """
     Displays a list of reviews based on query
     
     Context variable in template -> "reviews" 
