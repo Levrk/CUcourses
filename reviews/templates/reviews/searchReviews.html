@@ -1,0 +1,20 @@
+<html>
+    {% load static %}
+<link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
+<h1> Search for {{course_code}}</h1>
+<a href="{% url 'reviews' %}">Go back</a>
+<table>
+<tr>
+</tr>
+{% for review in reviews%}  
+<tr>
+<td>{{review}}</td>
+<td>{{ review.snippet }}</td>
+<td><a href="{%url 'review' review.id %}"> View</a></td>
+</tr>
+{% empty %}
+    <h3>Empty List</h3>
+{% endfor %}
+</table>
+
+</html>
