@@ -1,5 +1,18 @@
+:root {
+
+--primary-color: rgb(255, 88, 88);
+--secondary-color: rgb(173, 203, 255);
+--tertiary-color: rgb(250, 255, 184);
+--black: rgb(27, 27, 27);
+--white: rgb(254, 255, 241);
+--gradient-vertical: linear-gradient(rgb(255, 88, 88), rgb(255, 255, 255));
+--gradient-horizontal: linear-gradient(to right,rgb(255, 88, 88), rgb(255, 255, 255));
+}
+
+
+
 body{
-    background-color: aliceblue;
+    background-color: var(--white);
     }
 
 h1 {
@@ -8,20 +21,20 @@ h1 {
     
 form {
 text-align: center;
-background-image: linear-gradient( #bdd0e4, #c7dcbb);
+background-color: var(--primary-color);
 padding: 1cm;
 }
 
 
 table {
-    background-image: linear-gradient( #bdd0e4, #c7dcbb);
+    background-image: var(--gradient-vertical);
     font-family: Arial, sans-serif;
     width: 100%;
     border-collapse: collapse;
     }
     
     td {
-    border: 1px solid black;
+    border: 1px solid var(--black);
     padding: 8px;
     text-align: left;
     border-radius: 3%;
@@ -33,8 +46,8 @@ table {
     height: 500px;
     margin: 0 auto;
     padding: 20px;
-    border: solid 3px black;
-    background-image: linear-gradient( #bdd0e4, #c7dcbb);
+    border: solid 3px var(--secondary-color);
+    background-image: var(--gradient-vertical);
     text-align: center;
     border-radius: 2%;
 }
@@ -55,25 +68,25 @@ table {
     #mainNav is the id 
     */
     
-#mainNav {
-    background: rgb(123, 12, 241);
-    color: rgb(0, 0, 0);
-
-}
-
-#mainNav ul{
-    padding: 0;
-    margin: 0;
-    list-style: 0;
-}
-#mainNav li{
-    display: inline;
-    padding: 5px 10px;
-
-}
-
-#mainNav a{
-    color:rgb(255, 255, 255);
-    text-decoration: none;
-    font-size: 22px;
-}
+    #mainNav {
+        background: var(--gradient-horizontal);
+        color: var(--black);
+    
+    }
+    
+    #mainNav ul{
+        padding: 0;
+        margin: 0;
+        list-style: 0;
+    }
+    #mainNav li{
+        display: inline;
+        padding: 5px 10px;
+    
+    }
+    
+    #mainNav a{
+        color:rgb(255, 255, 255);
+        text-decoration: none;
+        font-size: 22px;
+    }
