@@ -13,25 +13,25 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         txt_file = options['txt_file']
         
-        # Update Course model data from temporary text file
+        # Update dept model data from temporary text file
         with open(txt_file, 'r') as f:
             for line in f:
-                # Split the line into course code and name
+                # Split the line into dept code and name
                 dept_data = line.strip().split(',')
                 dept_code = dept_data[0].strip()
                 dept_name = dept_data[1].strip()
                 
-                # Get or create the Course object with the course code
+                # Get or create the depatment object with the dept code
                 newdept, created = department.objects.get_or_create(deptCode=dept_code)
 
-                # Update the course name
+                # Update the dept name
                 newdept.deptCode = dept_code
                 newdept.deptName = dept_name
 
-                # Save the updated Course object
+                # Save the updated dept object
                 newdept.save()
 
-                # Print a message for each updated Course object
+                # Print a message for each updated dept object
                 if created:
                     self.stdout.write(self.style.SUCCESS(f'Created department: {dept_code} - {dept_name}'))
                 else:
