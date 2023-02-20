@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand, CommandError
 from reviews.models import course
 import openpyxl
 import pandas as pd
-import os
+#import os
 
 def excel_to_txt(excel_file, txt_file):
     """pulls out the data from columns B and D  of an excel document and turns it into a .txt document,
@@ -39,26 +39,6 @@ def excel_to_txt(excel_file, txt_file):
 
 #filepath = "Classes.txt"
 
-# def read_data_from_file():
-#     """Takes the contents of an input filepath, and returns it as a list, excluding any
-#     whitespaces that may be in the .txt document. This data can be gotten from 
-#     https://apps.clarku.edu/course-listings/registrarSPRING,23 With SPRING,23 Being
-#     replaced by the relevant year. Copy this table into an excel document and then copy the columns
-#     with the necessary information into a .txt documen.
-    
-#     IMPORTANT: NAME THE DOCUMENT "Classes.txt" """
-    
-#     with open(filepath, 'r') as f:
-#         lines = f.readlines()
-#     data = []
-#     existing_items = set()
-#     for line in lines:
-#         line = line.strip()
-#         if line and line not in existing_items:
-#             item = process_line(line)
-#             data.append(item)
-#             existing_items.add(line)
-#     return data
 
 class Command(BaseCommand):
     help = 'Update course data from an Excel file'
@@ -72,6 +52,18 @@ class Command(BaseCommand):
 
         # Convert Excel file to temporary text file
         excel_to_txt(excel_file, txt_file)
+        
+        
+        # Removes all discussions and Labs
+        with open(txt_file, 'r') as f:
+            lines = f.readlines()
+
+        with open(txt_file, 'w') as f:
+            for line in lines:
+                if not ('LAB:' in line or 'DISC:' in line):
+                    f.write(line)
+
+
 
         # Update Course model data from temporary text file
         with open(txt_file, 'r') as f:
@@ -108,4 +100,4 @@ class Command(BaseCommand):
         #RUN THIS IN TERMINAL VIA:
         #python manage.py courseUpdate "path/to/excel/file.xlsx"
         #instead of path/to/excel/file.xlsx, put in the file path of the excel document
-        #also you NEED to install the new dependencies :)
+        #also you NEED to install the new dependencies, pandas and openpyx

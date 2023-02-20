@@ -1,0 +1,67 @@
+ACCT, Accounting
+AFRC, Africana Studies
+ARAB, Arabic
+ARTH, Art History
+ARTS, Art Studio
+ASTR, Astronomy
+AS, Asian Studies
+BAN, Business Analytics
+BCMB, Biochem and Molecular Biology
+BCOM, Business Communication
+BIOL, Biology
+BLAW, Business Law
+CHEM, Chemistry
+CHIN, Chinese
+CLAS, Classics
+CMLT, Comparative Literature
+CRES, Comparative Race & Ethnic Stds
+CRW, Creative Writing
+CSCI, Computer Science
+CYES, Community Youth & Educ Studies
+DSCI, Data Science
+ECON, Economics
+EDUC, Education
+ENG, English
+ENT, Entrepreneurship
+EN, Environmental Science
+EPP, Ethics and Public Policy
+FIN, Finance
+FREN, French
+GAME, Game-Interactive Media
+GART, Game Arts
+GCPT, Game Computer Programming
+GEOG, Geography
+GERM, German
+GES, Global Environmental Studies
+GGRA, Game Graphic Design
+HEBR, Hebrew
+HGS, Holocaust & Genocide Studies
+HIST, History
+HSS, Health, Science & Society
+HS, Higgins School of Humanities
+IDCE, Int'l Dev'l, Community, Envir
+IDND, Interdepart/Nondept/Interdis
+ID, International Development
+JAPN, Japanese
+JS, Jewish Studies
+LALS, Latin American-Latinx Studies
+LAS, Law and Society
+LAT, Latin
+MATH, Mathematics
+MCA, Media, Culture & the Arts
+MGMT, Management
+MKT, Marketing
+MUSC, Music
+NRES, Nonresident Graduate Student
+PECO, Peace and Conflict Studies
+PHIL, Philosophy
+PHYS, Physics
+PSCI, Political Science
+PSYC, Psychology
+QBUS, Quantitative Business
+SCRN, Screen Studies
+SOC, Sociology
+SPAN, Spanish
+TA, Theater Arts
+UDSC, Urban Devl Social Change
+WGS, Women's and Gender Studies
