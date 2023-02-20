@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from reviews.models import course
+from reviews.models import course, department
 import openpyxl
 import pandas as pd
 #import os
@@ -72,10 +72,10 @@ class Command(BaseCommand):
                 course_data = line.strip().split('\t')
                 course_code = course_data[0].strip()
                 course_name = course_data[1].strip()
-                # courseCode, courseName = line.strip().split('\t')
-                # course, created = course.objects.get_or_create(course_code=courseCode.strip())
-                # course.courseName = courseName.strip()
-                # course.save()
+                
+                #get the relevant department info:
+                department_code = course_code.split()[0]  # extract the department code, e.g. "CSCI"
+                newdept = department.objects.get(deptCode=department_code)  # get the department object
                 
                 # Get or create the Course object with the course code
                 newcourse, created = course.objects.get_or_create(courseCode=course_code)
@@ -83,6 +83,7 @@ class Command(BaseCommand):
                 # Update the course name
                 newcourse.courseCode = course_code
                 newcourse.courseName = course_name
+                newcourse.dept = newdept
 
                 # Save the updated Course object
                 newcourse.save()
