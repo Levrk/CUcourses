@@ -81,3 +81,4 @@ class createReview(LoginRequiredMixin, CreateView):
     fields = '__all__'
     ##below is where we send the user after successfully submitting form
     success_url = reverse_lazy('reviews')
+    
