@@ -5,6 +5,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from .models import review, course
+import re
 # Create your views here.
 
 class allReviews(ListView):
@@ -33,12 +34,14 @@ class searchReviews(ListView):
     def get_context_data(self, *args, **kwargs):
         # getting context variables so search terms can be referenced in searchReviews template
         context = super().get_context_data(*args, **kwargs)
-        context['course_code'] = self.request.GET.get('course_code').upper().replace(" ","")
+        context['course_code'] = self.request.GET.get('course_code').upper()
         return context
 
     def get_queryset(self):
         #gets the desired course code from the form in searchReviews
-        course_code = self.request.GET.get('course_code').upper().replace(" ","")
+        #adds space between dept and course num if there isn't one
+        course_code = re.sub(r'(?<=[a-zA-Z])(?=\d)', ' ', self.request.GET.get('course_code').upper()).strip()
+        print(course_code)
         #locating the correct model attribute and generating query set
         courses = course.objects.filter(courseCode=course_code)
         queryset = review.objects.filter(course__in=courses)
