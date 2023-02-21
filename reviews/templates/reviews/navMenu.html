@@ -1,30 +1,26 @@
-<!-- 
-<!DOCTYPE html>
+
+{% load static %}
 <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'allStyles.css' %"> 
+    </head>
+    
+<nav id = "mainNav">
+    <ul>
+        <li ><a class = "noHover" href="{% url 'reviews' %}"> 
+                <img src= "{% static 'cuPic.png' %}" alt="About" width="70" height="50">  
+            </a>
+        </li>
 
-</head>
+        <li style="float: right;">
+            {%if request.user.is_authenticated%}
+            <a href="{% url 'logout' %}">Logout</a> 
+            
+            {%else%}
+            <a href ="{% url 'login' %}">Login</a>
+            {% endif %}
+        </li>
 
-<body>
-    <div class="container ">
-        <header> 
-            -->
-            <head>
-                <link rel="stylesheet" type="text/css" href="{%static 'allStyles.css' %">
-              </head>
-              
-            <nav id = "mainNav">
-                <ul>
-                    <li><a href="{% url 'reviews' %}">Home</a></li>
-                    <li><a href="{% url 'create-review' %}">Create Review</a></li>
-                    <li><a href='#'> dummyLink :)</a></li>
-                </ul>
-            </nav>
-            <!---
-
-        </header>
-
-
-    </div>
-
-</body>
--->
+        <li style="float: right;"><a href="{% url 'create-review' %}">Create Review</a></li>
+            
+    </ul>
+</nav>

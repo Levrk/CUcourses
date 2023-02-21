@@ -112,6 +112,10 @@ USE_I18N = True
 
 USE_TZ = True
 
+#Will redirect user to login page when they try to reach any restricted page
+# Restricted pages have the LoginRequiredMixin variable in their views.py class
+LOGIN_URL = 'login'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/

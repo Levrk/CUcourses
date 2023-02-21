@@ -56,7 +56,7 @@ table {
     */
     
 #mainNav {
-    background: rgb(123, 12, 241);
+    background: rgb(123, 123, 241);
     color: rgb(0, 0, 0);
 
 }
@@ -67,13 +67,31 @@ table {
     list-style: 0;
 }
 #mainNav li{
-    display: inline;
-    padding: 5px 10px;
+    
+    display: inline-flex;
+    vertical-align: bottom;
+    padding: 10px 10px;
 
 }
+
+/*
+Don't like this effect 
+#mainNav li:hover {
+    background-color: #9b86bf;
+    height: 50;
+    cursor: pointer;
+  }
+*/
 
 #mainNav a{
     color:rgb(255, 255, 255);
     text-decoration: none;
     font-size: 22px;
+    border-top: 2px solid transparent;
 }
+
+#mainNav a:not(.noHover):hover {
+    border-top-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    transition: border-top-color 0.3s ease-in-out;
+  }

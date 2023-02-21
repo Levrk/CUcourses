@@ -5,7 +5,20 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from .models import review, course
+
+"""Import for log in page"""
+from django.contrib.auth.views import LoginView
+
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
+
+class customLoginView(LoginView):
+    template_name =  "reviews/login.html"
+    fields = '__all__'
+    redirect_authenticated_user = True
+    
+    def get_success_url(self):
+        return reverse_lazy('reviews')
 
 class allReviews(ListView):
     """
@@ -56,7 +69,7 @@ class reviewDetails(DetailView):
     context_object_name = "review"
     template_name = "reviews/reviewDetails.html"
 
-class createReview(CreateView):
+class createReview(LoginRequiredMixin, CreateView):
     """
     Displays a form for submitting a new review
     
