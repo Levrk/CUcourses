@@ -53,12 +53,17 @@ class searchReviews(ListView):
     def get_queryset(self):
         #gets the desired course code from the form in searchReviews
         #adds space between dept and course num if there isn't one
-        course_code = re.sub(r'(?<=[a-zA-Z])(?=\d)', ' ', self.request.GET.get('course_code').upper()).strip()
-        print(course_code)
+        searchTerm = re.sub(r'(?<=[a-zA-Z])(?=\d)', ' ', self.request.GET.get('course_code').upper()).strip()
+        print(searchTerm)
+        if (any(char.isdigit() for char in searchTerm)):
         #locating the correct model attribute and generating query set
-        courses = course.objects.filter(courseCode=course_code)
-        queryset = review.objects.filter(course__in=courses)
-        return queryset
+            courses = course.objects.filter(courseCode=searchTerm)
+            queryset = review.objects.filter(course__in=courses)
+            return queryset
+        else:
+            courses = course.objects.filter(courseCode__contains=searchTerm)
+            queryset = review.objects.filter(course__in=courses)
+            return queryset 
 
 
 class reviewDetails(DetailView):
