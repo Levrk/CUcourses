@@ -61,6 +61,7 @@ class searchReviews(ListView):
             queryset = review.objects.filter(course__in=courses)
             return queryset
         else:
+            searchTerm += " "
             courses = course.objects.filter(courseCode__contains=searchTerm)
             queryset = review.objects.filter(course__in=courses)
             return queryset 
