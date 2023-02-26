@@ -6,7 +6,7 @@
 --black: rgb(27, 27, 27);
 --white: rgb(254, 255, 241);
 --charcoal: rgb(54, 69, 79);
---warmGray: rgb(110,98,89);
+--lightgray: rgba(217, 217, 214, 0.69);
 --gradient-vertical: linear-gradient(rgb(187, 0, 0), rgb(255, 255, 255));
 --gradient-horizontal: linear-gradient(to right,rgb(187, 0, 0), rgb(255, 255, 255));
 }
@@ -29,7 +29,7 @@ padding: 1cm;
 
 
 table {
-    background-image: var(--gradient-vertical);
+    background-color: var(--lightgray);
     font-family: Arial, sans-serif;
     width: 100%;
     border-collapse: collapse;
@@ -48,9 +48,9 @@ table {
     width: 75%;
     height: 500px;
     margin: 0 auto;
-    padding: 10px;
-    border: solid 3px var(--secondary-color);
-    background-image: var(--gradient-vertical);
+    padding: 20px;
+    border: solid 3px var(--lightgray);
+    background-color: var(--lightgray);
     text-align: center;
     border-radius: 2%;
 }
@@ -60,8 +60,8 @@ table {
     height: 500px;
     margin: 0 auto;
     padding: 20px;
-    border: solid 3px var(--secondary-color);
-    background-image: var(--gradient-vertical);
+    border: solid 3px var(--lightgray);
+    background-color: var(--lightgray);
     text-align: center;
     border-radius: 2%;
 }
