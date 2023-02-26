@@ -89,7 +89,7 @@ table {
         align-items: center;
     }
 
-        #mainNav li:nth-last-child(2) {
+        #mainNav li:nth-last-child(4) {
         margin-left: auto; /* push the second-to-last menu item to the right */
     }
 

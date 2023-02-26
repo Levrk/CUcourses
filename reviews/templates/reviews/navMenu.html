@@ -11,7 +11,12 @@
             </a>
         </li>
 
-        <li style="float: right;"><a href="{% url 'create-review' %}">Create Review</a></li>
+
+        <li><a href="{% url 'reviews' %}">Home</a></li>
+        <li><a href="{% url 'departments' %}">Departments</a></li>
+
+        <li><a href="{% url 'create-review' %}">Create Review</a></li>
+
 
         <li>
             {%if request.user.is_authenticated%}
