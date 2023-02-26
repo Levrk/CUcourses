@@ -2,13 +2,13 @@
     {% include "./navMenu.html" %}
 </header>
 
-<a href="{{request.META.HTTP_REFERER}}">Go back</a>
+
 <html>
 <head>
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'allStyles.css' %}">
 
-<div class="box"> 
+<div class="reviewBox"> 
 <h1> Review for {{review.course.courseCode}} - "{{review.course.courseName}}" </h1>
 {% if review.anon %}
     <p>posted by "Anonymous"</p>

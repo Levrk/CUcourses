@@ -1,18 +1,20 @@
 :root {
 
---primary-color: rgb(255, 88, 88);
---secondary-color: rgb(173, 203, 255);
+--primary-color: rgb(187, 0, 0);
+--secondary-color: rgb(187, 0, 0);
 --tertiary-color: rgb(250, 255, 184);
 --black: rgb(27, 27, 27);
 --white: rgb(254, 255, 241);
---gradient-vertical: linear-gradient(rgb(255, 88, 88), rgb(255, 255, 255));
---gradient-horizontal: linear-gradient(to right,rgb(255, 88, 88), rgb(255, 255, 255));
+--charcoal: rgb(54, 69, 79);
+--warmGray: rgb(110,98,89);
+--gradient-vertical: linear-gradient(rgb(187, 0, 0), rgb(255, 255, 255));
+--gradient-horizontal: linear-gradient(to right,rgb(187, 0, 0), rgb(255, 255, 255));
 }
 
 
 
 body{
-    background-color: var(--white);
+    background-color: var(--warmGray);
     }
 
 h1 {
@@ -41,6 +43,18 @@ table {
     }
     
 /* User defined classes */
+
+.reviewBox {
+    width: 75%;
+    height: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    border: solid 3px var(--secondary-color);
+    background-image: var(--gradient-vertical);
+    text-align: center;
+    border-radius: 2%;
+}
+
 .box {
     width: 500px;
     height: 500px;
