@@ -1,0 +1,23 @@
+<html>  
+    {% load static %}
+<link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
+
+<header>
+    {% include "./navMenu.html" %}
+</header>
+
+<table>
+    <tr>
+    </tr>
+    {% for dept in depts%}  
+    <tr>
+    <td>{{dept.deptCode}}</td>
+    <td>{{ dept.deptName }}</td>
+    <td><a href="{% url 'search_reviews' %}?course_code={{ dept.deptCode }}">View Reviews</a></td>
+    </tr>
+    {% empty %}
+        <h3>Empty List</h3>
+    {% endfor %}
+    </table>
+
+</html>

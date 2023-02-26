@@ -4,7 +4,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, FormView
 from django.urls import reverse_lazy
-from .models import review, course
+from .models import review, course, department
 
 """Import for log in page"""
 from django.contrib.auth.views import LoginView
@@ -63,6 +63,15 @@ class allReviews(ListView):
     context_object_name = "reviews"
     template_name = "reviews/allReviews.html"
 
+class deptView(ListView):
+    """
+
+    Context variable in template -> "reviews"
+    Template file -> "reviews/allReviews.html"
+    """
+    model = department
+    context_object_name = "depts"
+    template_name = "reviews/deptView.html"
 
 class searchReviews(ListView):
     """
