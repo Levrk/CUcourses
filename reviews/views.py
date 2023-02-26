@@ -1,25 +1,56 @@
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, FormView
 from django.urls import reverse_lazy
 from .models import review, course
 
 """Import for log in page"""
 from django.contrib.auth.views import LoginView
-
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 import re
 # Create your views here.
 
-class customLoginView(LoginView):
+class CustomLoginView(LoginView):
+    """
+        Creates log in page using default django login
+    """
     template_name =  "reviews/login.html"
     fields = '__all__'
     redirect_authenticated_user = True
     
     def get_success_url(self):
         return reverse_lazy('reviews')
+    
+class RegisterPage(FormView):
+    """
+        Creates the register page using a default django form
+        
+        blocks registered and logged in users from accessing this page
+        
+    """
+    template_name = 'reviews/register.html'
+    form_class = UserCreationForm
+    redirect_authenticated_user = True
+    success_url = reverse_lazy('reviews')
+    
+    def form_valid(self, form):
+        user = form.save()
+        if user is not None:
+            login(self.request, user) 
+        return super(RegisterPage, self).form_valid(form)
+    
+    def get(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return redirect('reviews')
+        return super(RegisterPage, self).get(*args, **kwargs)
+            
+    
+    
+    
 
 class allReviews(ListView):
     """

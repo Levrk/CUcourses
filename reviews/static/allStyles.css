@@ -64,12 +64,10 @@ table {
 
 }
 
-/*  Styling for the NAV Menu 
-    #mainNav is the id 
-    */
+/*  Styling for the NAV Menu. mainNav is the id */
     
     #mainNav {
-        background: rgb(123, 123, 241);
+        background: var(--primary-color);
         color: rgb(0, 0, 0);
     
     }
@@ -78,24 +76,23 @@ table {
         padding: 0;
         margin: 0;
         list-style: 0;
+        display: flex; /* add this to create a flex container */
+        /*justify-content: center; /* add this to center the child elements */
+        align-items: center; /* add this to center the child elements vertically */
     }
+
     #mainNav li{
         
         display: inline-flex;
         vertical-align: bottom;
         padding: 10px 10px;
-    
+        align-items: center;
     }
-    
-    /*
-    Don't like this effect 
-    #mainNav li:hover {
-        background-color: #9b86bf;
-        height: 50;
-        cursor: pointer;
-      }
-    */
-    
+
+        #mainNav li:nth-last-child(2) {
+        margin-left: auto; /* push the second-to-last menu item to the right */
+    }
+
     #mainNav a{
         color:rgb(255, 255, 255);
         text-decoration: none;
@@ -108,3 +105,21 @@ table {
         color: rgb(255, 255, 255);
         transition: border-top-color 0.3s ease-in-out;
       }
+    
+    .username-tooltip {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .username-tooltip:hover::after {
+        content: attr(data-username);
+        position: absolute;
+        top: 27px;
+        left: 0;
+        background-color: #555;
+        color: #fff;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
