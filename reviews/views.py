@@ -62,6 +62,11 @@ class allReviews(ListView):
     model = review
     context_object_name = "reviews"
     template_name = "reviews/allReviews.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['depts'] = department.objects.all()
+        return context
 
 class deptView(ListView):
     """

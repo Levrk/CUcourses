@@ -1,12 +1,77 @@
+<html>  
+    {% load static %}
+<link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
+
 <header>
     {% include "./navMenu.html" %}
 </header>
 
-<html>  
-    {% load static %}
-<link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
-<h1> All Reviews</h1>
 
+
+<div class="container">
+    <div class="sidebar">
+      <ul>
+
+
+        <li><a href="#">
+            <h1> All Reviews </h1>
+        </a></li>
+
+
+        <li><a href="#">
+            <div class="button">
+                <a href="{% url 'create-review' %}">Submit a Review</a>
+                </div>
+        </a></li>
+
+
+        <li><a href="#">
+            <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
+                <input type="text" name="course_code" placeholder="CSCI120">
+                <button type="submit">Search</button>
+                </form>  
+        </a></li>
+
+
+        <li><a href="#">
+            <table>
+                <tr>
+                </tr>
+                {% for dept in depts%}  
+                <tr>
+                    <td><a href="{% url 'search_reviews' %}?course_code={{ dept.deptCode }}">{{dept.deptCode}}</a></td>
+                </tr>
+                {% empty %}
+                    <h3>Empty List</h3>
+                {% endfor %}
+            </table>
+        </a></li>
+
+
+      </ul>
+    </div>
+
+    <div class="content">
+        <table>
+            <tr>
+            </tr>
+            {% for review in reviews%}  
+            <tr>
+            <td>{{review}}</td>
+            <td>{{ review.snippet }}</td>
+            <td><a href="{%url 'review' review.id %}"> View</a></td>
+            </tr>
+            {% empty %}
+                <h3>Empty List</h3>
+            {% endfor %}
+            </table>
+    </div>
+  </div>
+  
+
+
+  
+<!--
 <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
     <input type="text" name="course_code" placeholder="CSCI120">
     <button type="submit">Search</button>
@@ -15,6 +80,7 @@
 <div class="button">
 <a href="{% url 'create-review' %}">Submit a Review</a>
 </div>
+
 <table>
 <tr>
 </tr>
@@ -28,5 +94,6 @@
     <h3>Empty List</h3>
 {% endfor %}
 </table>
+-->
 
 </html>

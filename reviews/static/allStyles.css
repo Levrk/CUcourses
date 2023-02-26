@@ -28,6 +28,7 @@ padding: 1cm;
 }
 
 
+
 table {
     background-color: var(--lightgray);
     font-family: Arial, sans-serif;
@@ -77,6 +78,42 @@ table {
     font-size: large;
 
 }
+
+
+/* Styling for sidebar menu */
+
+.container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 10px;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: bold;
+  }
 
 /*  Styling for the NAV Menu. mainNav is the id */
     
