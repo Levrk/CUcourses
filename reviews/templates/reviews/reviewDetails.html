@@ -8,15 +8,77 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'allStyles.css' %}">
 
-<div class="reviewBox"> 
-<h1> Review for {{review.course.courseCode}} - "{{review.course.courseName}}" </h1>
-{% if review.anon %}
-    <p>posted by "Anonymous"</p>
-{% else %}
-    <p>posted by {{review.user}}</p>
-{% endif %}
+<div class="container">
+    <div class="sidebar">
+        <!-- Sidebar content-->
+            <!-- what class is the review for-->
+            <h4> Review for {{review.course.courseCode}} - "{{review.course.courseName}}" </h4>
 
-<h3> {{review.reviewText}} </h3>
+            <!-- Who posted the review-->
+            {% if review.anon %}
+                <p>Posted by "Anonymous"</p>
+            {% else %}
+                <p>Posted by {{review.user}}</p>
+            {% endif %}
+
+            <!-- Searchbar remains from all reviews page-->
+            <div class ="searchbar">
+            <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
+                <input type="text" name="course_code" placeholder="CSCI 120">
+                <button type="submit">Search</button>
+                </form>  
+            </div>
+
+            <!-- Department list remains -->
+            <div class="deptTableContainer">
+            <table class="deptTable">
+                <tr>
+                </tr>
+                {% for dept in depts%}  
+                <tr>
+                    <td><a href="{% url 'search_reviews' %}?course_code={{ dept.deptCode }}">{{dept.deptName}}</a></td>
+                </tr>
+                {% empty %}
+                    <h3>Empty List</h3>
+                {% endfor %}
+            </table>
+        </div>
+        
+
+
+    </div>
+
+    <!-- End of sidebar, beginning of main page content-->
+    <div class="content">
+        <div class="box"> 
+            <h3> Instructed by: {{review.instructor}} </h3>
+            <h3> Semester Taken: FALL 1776 (PLACEHOLDER) </h3>
+            
+            <div class = "innerlbox">
+            <!-- Unsure how we want the review writer to be displayed
+                {% if review.anon %}
+                <p>"Anonymous" : {{review.reviewText}}</p>
+            {% else %}
+                <p>{{review.user}} : {{review.reviewText}}</p>
+            {% endif %}
+            -->
+
+            <p style="font-size: 20px;">{{review.reviewText}}</p>
+
+            </div>
+
+            <!-- IDEALLY in a perfect world the info in the lines below should be portrayed by a graphic, not a line. -->
+            <h3> Overall: one doritos bag / 5 fritos bags (PLACEHOLDER) </h3>
+            <!-- Positioning in CSS is stupid and i hate it and its not easy in any way whatsover so im giving up on this section, fix this sh*t later-->
+            <h3>Level of difficulty: 1,000 / 5 (PLACEHOLDER)</h3>
+            <h3> Textbook Required?: bruh idk (PLACEHOLDER)</h3>
+
+
+            <!-- We really need to add more to submitting a review so its not just a whole page dedicated to a text box the size of a small tweet. We cannot assume
+                users are going to be writing an essay for each class, it will at most be one or two lines. It looks empty and sad.-->
+    </div>
+  </div>
+  
 
 </div>
 </head>

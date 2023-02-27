@@ -60,7 +60,7 @@ class Command(BaseCommand):
 
         with open(txt_file, 'w') as f:
             for line in lines:
-                if not ('LAB:' in line or 'DISC:' in line):
+                if not ('LAB:' in line or 'DISC:' in line or "NAVIGATOR" in line):
                     f.write(line)
 
 

@@ -1,24 +1,28 @@
-:root {
 
+/*imports source serif pro and Crimson text fonts from google, Crimson Text is to be used for headers and titles and stuff, source serif is for body and paragraphs*/
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+
+:root {
 --primary-color: rgb(187, 0, 0);
---secondary-color: rgb(187, 0, 0);
+--secondary-color: rgba(100, 100, 100, 0.69);;
 --tertiary-color: rgb(250, 255, 184);
+--primary-faded: rgba(187, 0, 0, 0.3);
 --black: rgb(27, 27, 27);
 --white: rgb(255, 255, 255);
---charcoal: rgb(54, 69, 79);
 --lightgray: rgba(219, 219, 219, 0.69);
 --gradient-vertical: linear-gradient(rgb(187, 0, 0), rgb(255, 255, 255));
 --gradient-horizontal: linear-gradient(to right,rgb(187, 0, 0), rgb(255, 255, 255));
+--shadow: 4px 8px 8px hsla(0, 0%, 0%, 0.505);
 }
 
-
-
 body{
-    background-color: var(--warmGray);
+    background-color: var(--white);
     }
 
-h1 {
-    text-align: center;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Crimson Text', 'Source Serif Pro' , sans-serif;
+    /*text-align: center;*/
     }
     
 form {
@@ -27,13 +31,14 @@ background-color: var(--primary-color);
 padding: 1cm;
 }
 
-
-
 table {
     background-color: var(--lightgray);
-    font-family: Arial, sans-serif;
+    font-family: 'Source Serif Pro', sans-serif;
     width: 100%;
     border-collapse: collapse;
+    box-shadow: var(--shadow);
+    padding: 10px;
+    padding-top: 10px;
     }
     td {
     border: 1px solid var(--black);
@@ -45,32 +50,44 @@ table {
 /* User defined classes */
 
 
-.reviewBox {
-    width: 75%;
-    height: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: solid 3px var(--lightgray);
-    background-color: var(--lightgray);
-    text-align: center;
-    border-radius: 2%;
-}
-
 .box {
-    width: 500px;
-    height: 500px;
+    width: auto;
+    height: auto;
     margin: 0 auto;
     padding: 20px;
     border: solid 3px var(--lightgray);
     background-color: var(--lightgray);
     text-align: center;
     border-radius: 2%;
+    box-shadow: var(--shadow);
 }
 
-.box:hover { 
+.leftbox {
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    border: solid 3px var(--lightgray);
+    background-color: var(--lightgray);
+    text-align: left;
+    border-radius: 2%;
+    box-shadow: var(--shadow);
+}
+
+.innerlbox {
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    text-align: left;
+    border-radius: 2%;
+}
+
+/*.box:hover { 
     border-style : dotted;
     }
-
+*/
 .button {
 
     text-align: center;
@@ -103,10 +120,12 @@ table {
   }
   
   .sidebar {
-    width: fit-content;
+    width: 20%;
     background-color: var(--primary-color);
     color: var(--white);
     padding: 10px;
+    box-shadow: var(--shadow);
+    margin-top: 10px;
   }
   
   .content {
@@ -115,9 +134,14 @@ table {
   }
   
   a {
-    text-decoration: none;
-    color: var(--primary-color);
+    text-decoration: underline;
+    color: var(--black);
     font-weight: bold;
+  }
+
+  a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
   }
 
 /*  Styling for the NAV Menu. mainNav is the id */
@@ -125,6 +149,8 @@ table {
     #mainNav {
         background: var(--primary-color);
         color: rgb(0, 0, 0);
+        box-shadow: var(--shadow);
+        
     
     }
     
@@ -152,6 +178,7 @@ table {
     #mainNav a{
         color:rgb(255, 255, 255);
         text-decoration: none;
+        font-family: 'Crimson Text', 'Source Serif Pro' , sans-serif;
         font-size: 22px;
         border-top: 2px solid transparent;
     }
