@@ -44,6 +44,8 @@ table {
     border: 1px solid var(--black);
     padding: 8px;
     text-align: left;
+    overflow-wrap:normal;
+    margin-right: 10px;
     }
     
 /* User defined classes */
@@ -121,6 +123,7 @@ table {
 .deptTableContainer {
     flex-shrink: 1;
     overflow-y: scroll;
+    overflow-x:hidden;
 }
 
 ::-webkit-scrollbar {
@@ -143,11 +146,15 @@ table {
     height: 90vh;
     flex-direction: row;
 }
+.searchbar{
+    overflow-x: inherit;
 
+}
 .sidebar {
     display: flex;
     flex-direction: column;
-    width: fit-content;
+    min-width: 7cm;
+    width: 30vh;
     background-color: var(--primary-color);
     color: var(--white);
     padding: 10px;
@@ -185,6 +192,7 @@ table {
         padding: 0;
         margin: 0;
         list-style: 0;
+        height: 8vh;
         display: flex; /* add this to create a flex container */
         /*justify-content: center; /* add this to center the child elements */
         align-items: center; /* add this to center the child elements vertically */
@@ -214,7 +222,7 @@ table {
         color: rgb(255, 255, 255);
         transition: border-top-color 0.3s ease-in-out;
     }
-    }
+    
     
     .username-tooltip {
         position: relative;
