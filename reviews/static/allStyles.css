@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 
 
+/* VARIABLES */
 :root {
 --primary-color: rgb(187, 0, 0);
 --secondary-color: rgba(100, 100, 100, 0.69);;
@@ -10,27 +11,33 @@
 --primary-faded: rgba(187, 0, 0, 0.3);
 --black: rgb(27, 27, 27);
 --white: rgb(255, 255, 255);
---lightgray: rgba(219, 219, 219, 0.69);
+--lightgray: rgb(200, 200, 200, 0.80);
 --gradient-vertical: linear-gradient(rgb(187, 0, 0), rgb(255, 255, 255));
 --gradient-horizontal: linear-gradient(to right,rgb(187, 0, 0), rgb(255, 255, 255));
 --shadow: 4px 8px 8px hsla(0, 0%, 0%, 0.305);
 }
 
+/*Defines page background*/
 body{
     background-color: var(--white);
     }
 
+/* Defines font for all headers*/
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Crimson Text', 'Source Serif Pro' , sans-serif;
     /*text-align: center;*/
-    }
-    
-form {
-text-align: center;
-background-color: var(--primary-color);
-padding: 1cm;
 }
 
+/* Defines form formatting */
+form {
+    text-align: center;
+    background-color: var(--primary-color);
+    padding: 1cm;
+    /*box-shadow: var(--shadow);*/
+}
+
+
+/*Defines formatting for tables */
 table {
     background-color: var(--lightgray);
     font-family: 'Source Serif Pro', sans-serif;
@@ -47,8 +54,21 @@ table {
     overflow-wrap:normal;
     margin-right: 10px;
     }
-    
-/* User defined classes */
+
+
+/* For hyperlinks */
+a {
+    text-decoration: underline;
+    color: var(--black);
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+/* End of hyperlinks */
+
 
 .pagination{
     display: flex;
@@ -56,6 +76,9 @@ table {
     font-size: larger;
 }
 
+/* Various types of boxes */
+
+/*normal box*/
 .box {
     width: auto;
     height: auto;
@@ -66,6 +89,8 @@ table {
     text-align: center;
     box-shadow: var(--shadow);
 }
+
+/*box made specifically for review details page */
 .reviewBox {
     width: 75%;
     height: 500px;
@@ -76,6 +101,8 @@ table {
     text-align: center;
     border-radius: 2%;
 }
+
+/* Left aligned box*/
 .leftbox {
     width: auto;
     height: auto;
@@ -88,6 +115,7 @@ table {
     box-shadow: var(--shadow);
 }
 
+/* Darker grey box, to be used within normal boxes */
 .innerlbox {
     /* this is where the review text is displayed*/
     width: auto;
@@ -98,12 +126,12 @@ table {
     text-align: left;
 }
 
-/*.box:hover { 
-    border-style : dotted;
-    }
-*/
-.button {
+/*End of box-related classes*/
 
+
+
+/*formatting for buttons*/
+.button {
     text-align: center;
     padding: 1cm;
     font-size: large;
@@ -114,7 +142,7 @@ table {
     max-height: 86vh;
     overflow-y: scroll;
 }
-/* Styling for sidebar menu */
+/* Styling for scrolling table */
 .deptTableContainer {
     height: 12cm;
     overflow-y: scroll;
@@ -148,15 +176,20 @@ table {
 ::-webkit-scrollbar-thumb {
     background-color: var(--white);
 }
+/* End of scrolling table styling */
+
+
+/* Sidebar stying begins */
 .container {
     display: flex;
     height: 90vh;
     flex-direction: row;
 }
+
 .searchbar{
     overflow-x: inherit;
-
 }
+
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -167,23 +200,14 @@ table {
     padding: 10px;
     box-shadow: var(--shadow);
     margin-top: 10px;
-  }
-  
-  .content {
+}
+
+.content {
     flex: 1;
     padding: 10px;
-  }
-  
-  a {
-    text-decoration: underline;
-    color: var(--black);
-    font-weight: bold;
-  }
+}
+/* Sidebar styling ends */
 
-  a:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
-  }
 
 /*  Styling for the NAV Menu. mainNav is the id */
     
@@ -191,8 +215,6 @@ table {
         background: var(--primary-color);
         color: rgb(0, 0, 0);
         box-shadow: var(--shadow);
-        
-    
     }
     
     #mainNav ul{
@@ -249,3 +271,4 @@ table {
         font-size: 14px;
         white-space: nowrap;
     }
+    /*end of nav menu styling*/

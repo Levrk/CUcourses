@@ -5,6 +5,7 @@ from django.contrib.auth.views import LogoutView
 from django.http import HttpRequest
 
 
+
 urlpatterns = [
 
 path("login/", CustomLoginView.as_view(), name ='login'),    

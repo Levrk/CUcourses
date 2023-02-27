@@ -2,9 +2,20 @@
     {% include "./navMenu.html" %}
 </header>
 
-<h1> New Review </h1>
+
 {% load static %}
 <link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
+<h1> New Review </h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="user" value="{{ request.user.pk }}">
+    <button type="submit">Submit</button>
+</form>
+
+
+<!--
 <form method="POST" action="">
     {%csrf_token%}
     {{form.as_p}}
@@ -12,3 +23,4 @@
 
 
 </form>
+-->
