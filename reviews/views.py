@@ -4,6 +4,8 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, FormView
 from django.urls import reverse_lazy
+from django.core.paginator import Paginator
+
 from .models import review, course, department
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
@@ -65,7 +67,8 @@ class allReviews(ListView):
     model = review
     context_object_name = "reviews"
     template_name = "reviews/allReviews.html"
-    
+    paginate_by = 15
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['depts'] = department.objects.all()
@@ -91,11 +94,13 @@ class searchReviews(ListView):
     model = review
     context_object_name = "reviews"
     template_name = "reviews/searchReviews.html"
-
+    paginate_by = 15
+    
     def get_context_data(self, *args, **kwargs):
         # getting context variables so search terms can be referenced in searchReviews template
         context = super().get_context_data(*args, **kwargs)
         context['course_code'] = self.request.GET.get('course_code').upper()
+        context['depts'] = department.objects.all()
         return context
 
     def get_queryset(self):

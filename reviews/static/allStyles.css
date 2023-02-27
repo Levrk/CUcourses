@@ -70,7 +70,11 @@ a:hover {
 /* End of hyperlinks */
 
 
-
+.pagination{
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+}
 
 /* Various types of boxes */
 
@@ -134,7 +138,10 @@ a:hover {
 
 }
 
-
+.reviewTableContainer{
+    max-height: 86vh;
+    overflow-y: scroll;
+}
 /* Styling for scrolling table */
 .deptTableContainer {
     height: 12cm;

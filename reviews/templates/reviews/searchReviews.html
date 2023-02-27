@@ -5,19 +5,71 @@
 <html>
     {% load static %}
 <link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
-<h1> Search for {{course_code}}</h1>
+
+
+<div class="container">
+
+    
+    
+    <div class="sidebar">
+        <!-- Sidebar content-->
+        <h1 style="text-align: center;"> Search for {{course_code}}</h1>
+
+            <br> <!-- This only exists to be consistent with other pages size-->
+
+            <div class ="searchbar">
+            <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
+                <input type="text" name="course_code" placeholder="CSCI 120">
+                <button type="submit">Search</button>
+                </form>  
+            </div>
+            <div class="deptTableContainer">
+            <table class="deptTable">
+                <tr>
+                </tr>
+                {% for dept in depts%}  
+                <tr>
+                    <td><a href="{% url 'search_reviews' %}?course_code={{ dept.deptCode }}">{{dept.deptName}}</a></td>
+                </tr>
+                {% empty %}
+                    <h3 style="text-align: center;">No Departments? :(</h3>
+                {% endfor %}
+            </table>
+        </div>
+        
+
+
+    </div>
+
+    <!-- End of sidebar, beginning of main page content-->
+    <div class="content">
+        
 <table>
-<tr>
-</tr>
-{% for review in reviews%}  
-<tr>
-<td>{{review}}</td>
-<td>{{ review.snippet }}</td>
-<td><a href="{%url 'review' review.id %}"> View</a></td>
-</tr>
-{% empty %}
-    <h3>No Reviews :(</h3>
-{% endfor %}
-</table>
+    <tr>
+    </tr>
+    {% for review in reviews%}  
+    <tr>
+    <td>{{review}}</td>
+    <td>{{ review.snippet }}</td>
+    <td><a href="{%url 'review' review.id %}"> View</a></td>
+    </tr>
+    {% empty %}
+        <h3 style="text-align: center;">No Reviews :(</h3>
+    {% endfor %}
+    </table>
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="/?page={{ page_obj.previous_page_number }}">&larr;</a>
+        {% endif %}
+        
+            {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        
+        {% if page_obj.has_next %}
+            <a href="/?page={{ page_obj.next_page_number }}">&rarr;</a>
+        {% endif %}
+    </div>
+    </div>
+</div>
+
 
 </html>
