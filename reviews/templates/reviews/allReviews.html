@@ -2,13 +2,17 @@
     {% load static %}
 <link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
 
+
+
+<div class="fullPage">
 <header>
     {% include "./navMenu.html" %}
 </header>
 
-
-
 <div class="container">
+
+    
+    
     <div class="sidebar">
 
             <h1> All Reviews </h1>
@@ -29,7 +33,7 @@
                     <td><a href="{% url 'search_reviews' %}?course_code={{ dept.deptCode }}">{{dept.deptName}}</a></td>
                 </tr>
                 {% empty %}
-                    <h3>Empty List</h3>
+                    <h3>No Departments? :(</h3>
                 {% endfor %}
             </table>
         </div>
@@ -49,12 +53,12 @@
             <td><a href="{%url 'review' review.id %}"> View</a></td>
             </tr>
             {% empty %}
-                <h3>Empty List</h3>
+                <h3> No Reviews :(</h3>
             {% endfor %}
             </table>
     </div>
   </div>
-  
+</div>
 
 
   
