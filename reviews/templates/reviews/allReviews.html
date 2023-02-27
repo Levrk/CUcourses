@@ -14,16 +14,17 @@
     
     
     <div class="sidebar">
+        <!-- Sidebar content-->
+            <h1 Style = "text-align: center"> All Reviews </h1>
 
-            <h1> All Reviews </h1>
+            <br> <!-- This only exists to be consistent with other pages size-->
 
             <div class ="searchbar">
             <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
-                <input type="text" name="course_code" placeholder="CSCI120">
+                <input type="text" name="course_code" placeholder="CSCI 120">
                 <button type="submit">Search</button>
                 </form>  
             </div>
-
             <div class="deptTableContainer">
             <table class="deptTable">
                 <tr>
@@ -42,6 +43,7 @@
 
     </div>
 
+    <!-- End of sidebar, beginning of main page content-->
     <div class="content">
         <table>
             <tr>
@@ -58,33 +60,5 @@
             </table>
     </div>
   </div>
-</div>
-
-
   
-<!--
-<form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
-    <input type="text" name="course_code" placeholder="CSCI120">
-    <button type="submit">Search</button>
-    </form>  
-
-<div class="button">
-<a href="{% url 'create-review' %}">Submit a Review</a>
-</div>
-
-<table>
-<tr>
-</tr>
-{% for review in reviews%}  
-<tr>
-<td>{{review}}</td>
-<td>{{ review.snippet }}</td>
-<td><a href="{%url 'review' review.id %}"> View</a></td>
-</tr>
-{% empty %}
-    <h3>Empty List</h3>
-{% endfor %}
-</table>
--->
-
 </html>

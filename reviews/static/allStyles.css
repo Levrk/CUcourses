@@ -1,24 +1,28 @@
-:root {
 
+/*imports source serif pro and Crimson text fonts from google, Crimson Text is to be used for headers and titles and stuff, source serif is for body and paragraphs*/
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+
+:root {
 --primary-color: rgb(187, 0, 0);
---secondary-color: rgb(187, 0, 0);
+--secondary-color: rgba(100, 100, 100, 0.69);;
 --tertiary-color: rgb(250, 255, 184);
+--primary-faded: rgba(187, 0, 0, 0.3);
 --black: rgb(27, 27, 27);
 --white: rgb(255, 255, 255);
---charcoal: rgb(54, 69, 79);
 --lightgray: rgba(219, 219, 219, 0.69);
 --gradient-vertical: linear-gradient(rgb(187, 0, 0), rgb(255, 255, 255));
 --gradient-horizontal: linear-gradient(to right,rgb(187, 0, 0), rgb(255, 255, 255));
+--shadow: 4px 8px 8px hsla(0, 0%, 0%, 0.305);
 }
 
-
-
 body{
-    background-color: var(--warmGray);
+    background-color: var(--white);
     }
 
-h1 {
-    text-align: center;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Crimson Text', 'Source Serif Pro' , sans-serif;
+    /*text-align: center;*/
     }
     
 form {
@@ -27,24 +31,37 @@ background-color: var(--primary-color);
 padding: 1cm;
 }
 
-
-
 table {
     background-color: var(--lightgray);
-    font-family: Arial, sans-serif;
+    font-family: 'Source Serif Pro', sans-serif;
     width: 100%;
     border-collapse: collapse;
+    box-shadow: var(--shadow);
+    padding: 10px;
+    padding-top: 10px;
     }
     td {
     border: 1px solid var(--black);
     padding: 8px;
     text-align: left;
-    border-radius: 3%;
+    overflow-wrap:normal;
+    margin-right: 10px;
     }
     
 /* User defined classes */
 
 
+
+.box {
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    border: solid 3px var(--lightgray);
+    background-color: var(--lightgray);
+    text-align: center;
+    box-shadow: var(--shadow);
+}
 .reviewBox {
     width: 75%;
     height: 500px;
@@ -55,22 +72,32 @@ table {
     text-align: center;
     border-radius: 2%;
 }
-
-.box {
-    width: 500px;
-    height: 500px;
+.leftbox {
+    width: auto;
+    height: auto;
     margin: 0 auto;
     padding: 20px;
     border: solid 3px var(--lightgray);
     background-color: var(--lightgray);
-    text-align: center;
+    text-align: left;
     border-radius: 2%;
+    box-shadow: var(--shadow);
 }
 
-.box:hover { 
+.innerlbox {
+    /* this is where the review text is displayed*/
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--white);
+    text-align: left;
+}
+
+/*.box:hover { 
     border-style : dotted;
     }
-
+*/
 .button {
 
     text-align: center;
@@ -82,8 +109,21 @@ table {
 
 /* Styling for sidebar menu */
 .deptTableContainer {
+    height: 12cm;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--primary-color);
+}
+.deptTableContainer {
     flex-shrink: 1;
     overflow-y: scroll;
+    overflow-x:hidden;
 }
 
 ::-webkit-scrollbar {
@@ -98,19 +138,28 @@ table {
     background-color: var(--white);
 }
 
+::-webkit-scrollbar-thumb {
+    background-color: var(--white);
+}
 .container {
     display: flex;
     height: 90vh;
     flex-direction: row;
 }
+.searchbar{
+    overflow-x: inherit;
 
+}
 .sidebar {
     display: flex;
     flex-direction: column;
-    width: fit-content;
+    min-width: 7cm;
+    width: 30vh;
     background-color: var(--primary-color);
     color: var(--white);
     padding: 10px;
+    box-shadow: var(--shadow);
+    margin-top: 10px;
   }
   
   .content {
@@ -119,9 +168,14 @@ table {
   }
   
   a {
-    text-decoration: none;
-    color: var(--primary-color);
+    text-decoration: underline;
+    color: var(--black);
     font-weight: bold;
+  }
+
+  a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
   }
 
 /*  Styling for the NAV Menu. mainNav is the id */
@@ -129,6 +183,8 @@ table {
     #mainNav {
         background: var(--primary-color);
         color: rgb(0, 0, 0);
+        box-shadow: var(--shadow);
+        
     
     }
     
@@ -136,6 +192,7 @@ table {
         padding: 0;
         margin: 0;
         list-style: 0;
+        height: 8vh;
         display: flex; /* add this to create a flex container */
         /*justify-content: center; /* add this to center the child elements */
         align-items: center; /* add this to center the child elements vertically */
@@ -155,6 +212,7 @@ table {
     #mainNav a{
         color:rgb(255, 255, 255);
         text-decoration: none;
+        font-family: 'Crimson Text', 'Source Serif Pro' , sans-serif;
         font-size: 22px;
         border-top: 2px solid transparent;
     }
@@ -164,6 +222,7 @@ table {
         color: rgb(255, 255, 255);
         transition: border-top-color 0.3s ease-in-out;
     }
+    
     
     .username-tooltip {
         position: relative;
