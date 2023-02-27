@@ -13,7 +13,7 @@
 --lightgray: rgba(219, 219, 219, 0.69);
 --gradient-vertical: linear-gradient(rgb(187, 0, 0), rgb(255, 255, 255));
 --gradient-horizontal: linear-gradient(to right,rgb(187, 0, 0), rgb(255, 255, 255));
---shadow: 4px 8px 8px hsla(0, 0%, 0%, 0.505);
+--shadow: 4px 8px 8px hsla(0, 0%, 0%, 0.305);
 }
 
 body{
@@ -44,7 +44,6 @@ table {
     border: 1px solid var(--black);
     padding: 8px;
     text-align: left;
-    border-radius: 3%;
     }
     
 /* User defined classes */
@@ -58,7 +57,6 @@ table {
     border: solid 3px var(--lightgray);
     background-color: var(--lightgray);
     text-align: center;
-    border-radius: 2%;
     box-shadow: var(--shadow);
 }
 
@@ -75,13 +73,13 @@ table {
 }
 
 .innerlbox {
+    /* this is where the review text is displayed*/
     width: auto;
     height: auto;
     margin: 0 auto;
     padding: 20px;
-    background-color: var(--secondary-color);
+    background-color: var(--white);
     text-align: left;
-    border-radius: 2%;
 }
 
 /*.box:hover { 
