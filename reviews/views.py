@@ -5,6 +5,9 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, FormView
 from django.urls import reverse_lazy
 from .models import review, course, department
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+from .forms import ReviewForm
 
 """Import for log in page"""
 from django.contrib.auth.views import LoginView
@@ -129,16 +132,23 @@ class reviewDetails(DetailView):
         context['depts'] = department.objects.all()
         return context
 
+
 class createReview(LoginRequiredMixin, CreateView):
     """
     Displays a form for submitting a new review
-    
     Context variable in template -> "review" 
     Template file -> "reviews/Review_form.html"
     """
+    
+    #We need to figure out what this method does exactly
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+        
     context_object_name = "review"
     model = review
-    fields = '__all__'
+    fields = ('course', 'instructor', 'reviewText', 'anon')
+    #review.user = request.user
     ##below is where we send the user after successfully submitting form
     success_url = reverse_lazy('reviews')
     
