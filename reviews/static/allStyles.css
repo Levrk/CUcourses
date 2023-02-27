@@ -4,9 +4,9 @@
 --secondary-color: rgb(187, 0, 0);
 --tertiary-color: rgb(250, 255, 184);
 --black: rgb(27, 27, 27);
---white: rgb(254, 255, 241);
+--white: rgb(255, 255, 255);
 --charcoal: rgb(54, 69, 79);
---lightgray: rgba(217, 217, 214, 0.69);
+--lightgray: rgba(219, 219, 219, 0.69);
 --gradient-vertical: linear-gradient(rgb(187, 0, 0), rgb(255, 255, 255));
 --gradient-horizontal: linear-gradient(to right,rgb(187, 0, 0), rgb(255, 255, 255));
 }
@@ -35,7 +35,6 @@ table {
     width: 100%;
     border-collapse: collapse;
     }
-    
     td {
     border: 1px solid var(--black);
     padding: 8px;
@@ -44,6 +43,7 @@ table {
     }
     
 /* User defined classes */
+
 
 .reviewBox {
     width: 75%;
@@ -81,14 +81,29 @@ table {
 
 
 /* Styling for sidebar menu */
+.deptTableContainer {
+    height: 12cm;
+    overflow-y: scroll;
+}
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--white);
+}
 .container {
     display: flex;
     flex-direction: row;
   }
   
   .sidebar {
-    width: 200px;
+    width: fit-content;
     background-color: var(--primary-color);
     color: var(--white);
     padding: 10px;
@@ -99,19 +114,9 @@ table {
     padding: 10px;
   }
   
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 10px;
-  }
-  
   a {
     text-decoration: none;
-    color: var(--white);
+    color: var(--primary-color);
     font-weight: bold;
   }
 
@@ -155,7 +160,7 @@ table {
         border-top-color: rgb(255, 255, 255);
         color: rgb(255, 255, 255);
         transition: border-top-color 0.3s ease-in-out;
-      }
+    }
     
     .username-tooltip {
         position: relative;
