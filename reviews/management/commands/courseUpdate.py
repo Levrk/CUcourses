@@ -41,7 +41,7 @@ def excel_to_txt(excel_file, txt_file):
 
 
 class Command(BaseCommand):
-    help = 'Update course data from an Excel file'
+    """Update course data from an Excel file"""
 
     def add_arguments(self, parser):
         parser.add_argument('excel_file', type=str, help='Path to Excel file')

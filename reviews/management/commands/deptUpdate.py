@@ -5,7 +5,7 @@ from reviews.models import department
 
 
 class Command(BaseCommand):
-    help = 'Update department data from .txt file'
+    """Update department data from .txt file"""
 
     def add_arguments(self, parser):
         parser.add_argument('txt_file', type=str, help='Path to txt file')
