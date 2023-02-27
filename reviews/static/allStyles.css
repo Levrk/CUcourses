@@ -50,7 +50,11 @@ table {
     
 /* User defined classes */
 
-
+.pagination{
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+}
 
 .box {
     width: auto;
@@ -106,7 +110,10 @@ table {
 
 }
 
-
+.reviewTableContainer{
+    max-height: 86vh;
+    overflow-y: scroll;
+}
 /* Styling for sidebar menu */
 .deptTableContainer {
     height: 12cm;
