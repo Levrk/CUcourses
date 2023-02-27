@@ -82,7 +82,7 @@ table {
 
 /* Styling for sidebar menu */
 .deptTableContainer {
-    height: 12cm;
+    flex-shrink: 1;
     overflow-y: scroll;
 }
 
@@ -97,12 +97,16 @@ table {
 ::-webkit-scrollbar-thumb {
     background-color: var(--white);
 }
+
 .container {
     display: flex;
+    height: 90vh;
     flex-direction: row;
-  }
-  
-  .sidebar {
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
     width: fit-content;
     background-color: var(--primary-color);
     color: var(--white);
@@ -138,7 +142,6 @@ table {
     }
 
     #mainNav li{
-        
         display: inline-flex;
         vertical-align: bottom;
         padding: 10px 10px;
