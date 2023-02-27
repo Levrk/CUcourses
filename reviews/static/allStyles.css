@@ -233,7 +233,8 @@ table {
         content: attr(data-username);
         position: absolute;
         top: 27px;
-        left: 0;
+        left: auto;
+        right: 0;
         background-color: #555;
         color: #fff;
         padding: 5px;
