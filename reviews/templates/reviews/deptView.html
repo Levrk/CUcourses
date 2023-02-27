@@ -16,7 +16,7 @@
     <td><a href="{% url 'search_reviews' %}?course_code={{ dept.deptCode }}">View Reviews</a></td>
     </tr>
     {% empty %}
-        <h3>Empty List</h3>
+        <h3>No Departments?</h3>
     {% endfor %}
     </table>
 
