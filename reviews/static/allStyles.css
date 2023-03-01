@@ -222,9 +222,8 @@ a:hover {
         margin: 0;
         list-style: 0;
         height: 8vh;
-        display: flex; /* add this to create a flex container */
-        /*justify-content: center; /* add this to center the child elements */
-        align-items: center; /* add this to center the child elements vertically */
+        display: flex;
+        align-items: center; 
     }
 
     #mainNav li{
@@ -233,9 +232,10 @@ a:hover {
         padding: 10px 10px;
         align-items: center;
     }
-
-        #mainNav li:nth-last-child(4) {
-        margin-left: auto; /* push the second-to-last menu item to the right */
+    
+    /* push the second-to-last menu item to the right */
+    #mainNav li:nth-last-child(4) {
+        margin-left: auto; 
     }
 
     #mainNav a{
