@@ -6,7 +6,7 @@
 <nav id = "mainNav">
     <ul>
         <li ><a class = "noHover" href="{% url 'reviews' %}"> 
-                <img src= "{% static 'cuPic.png' %}" alt="About" width="70" height="50">  
+                <img src= "{% static 'Cupic.png' %}" alt="About" width="70" height="50">  
             </a>
         </li>
 
@@ -20,8 +20,26 @@
 
         <li><a href="{% url 'reviews' %}">Home</a></li>
         <li><a href="{% url 'departments' %}">Departments</a></li>
-
         <li><a href="{% url 'create-review' %}">Create Review</a></li>
+
+
+        <!-- DARKMODE BUTTON, here for now :) 
+        <button id="dark-mode-btn">Toggle Dark Mode</button>
+
+        <script>
+        const btn = document.querySelector('#dark-mode-btn');
+        const root = document.querySelector(':root');
+
+        btn.addEventListener('click', () => {
+            if (root.classList.contains('dark')) {
+            root.classList.remove('dark');
+            } else {
+            root.classList.add('dark');
+            }
+        });
+        </script>
+        End of darkmode button-->
+
 
 
         <li>
