@@ -1,10 +1,13 @@
 {% load static %}
 <head>
+    <!-- takes the styling from css file allStyles -->
     <link rel="stylesheet" type="text/css" href="{% static 'allStyles.css' %"> 
-    </head>
+</head>
     
+<!-- start of Nav Menu content-->
 <nav id = "mainNav">
     <ul>
+        <!-- The class will stop the hover effect for the logo in the css file -->
         <li ><a class = "noHover" href="{% url 'reviews' %}"> 
                 <img src= "{% static 'Cupic.png' %}" alt="About" width="70" height="50">  
             </a>
@@ -18,34 +21,15 @@
         {%else%}
         {% endif %}
 
+        <!-- links -->
         <li><a href="{% url 'reviews' %}">Home</a></li>
         <li><a href="{% url 'departments' %}">Departments</a></li>
         <li><a href="{% url 'create-review' %}">Create Review</a></li>
 
 
-        <!-- DARKMODE BUTTON, here for now :) 
-        <button id="dark-mode-btn">Toggle Dark Mode</button>
-
-        <script>
-        const btn = document.querySelector('#dark-mode-btn');
-        const root = document.querySelector(':root');
-
-        btn.addEventListener('click', () => {
-            if (root.classList.contains('dark')) {
-            root.classList.remove('dark');
-            } else {
-            root.classList.add('dark');
-            }
-        });
-        </script>
-        End of darkmode button-->
-
-
-
         <li>
             {%if request.user.is_authenticated%}
             <a href="{% url 'logout' %}" class="username-tooltip" data-username="{{ request.user.username }}">Logout</a>
-            <!--- <p> {{user.username}} </p>-->
             
             {%else%}
             <a href ="{% url 'login' %}">Login</a>

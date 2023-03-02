@@ -9,44 +9,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'allStyles.css' %}">
 
 <div class="container">
-    <div class="sidebar">
-        <!-- Sidebar content-->
-            <!-- what class is the review for-->
-            <h4> Review for {{review.course.courseCode}} - "{{review.course.courseName}}" </h4>
-
-            <!-- Who posted the review-->
-            {% if review.anon %}
-                <p>Posted by "Anonymous"</p>
-            {% else %}
-                <p>Posted by {{review.user}}</p>
-            {% endif %}
-
-            <!-- Searchbar remains from all reviews page-->
-            <div class ="searchbar">
-            <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
-                <input type="text" name="course_code" placeholder="CSCI 120">
-                <button type="submit">Search</button>
-                </form>  
-            </div>
-
-            <!-- Department list remains -->
-            <div class="deptTableContainer">
-            <table class="deptTable">
-                <tr>
-                </tr>
-                {% for dept in depts%}  
-                <tr>
-                    <td><a href="{% url 'search_reviews' %}?course_code={{ dept.deptCode }}">{{dept.deptName}}</a></td>
-                </tr>
-                {% empty %}
-                    <h3>Empty List</h3>
-                {% endfor %}
-            </table>
-        </div>
-        
-
-
-    </div>
+    
+    {% include "./sideMenu.html"%}
 
     <!-- End of sidebar, beginning of main page content-->
     <div class="content">
