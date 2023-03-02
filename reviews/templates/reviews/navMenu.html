@@ -9,7 +9,7 @@
     <ul>
         <!-- The class will stop the hover effect for the logo in the css file -->
         <li ><a class = "noHover" href="{% url 'reviews' %}"> 
-                <img src= "{% static 'cuPic.png' %}" alt="About" width="70" height="50">  
+                <img src= "{% static 'Cupic.png' %}" alt="About" width="70" height="50">  
             </a>
         </li>
 
@@ -25,6 +25,8 @@
         <li><a href="{% url 'reviews' %}">Home</a></li>
         <li><a href="{% url 'departments' %}">Departments</a></li>
         <li><a href="{% url 'create-review' %}">Create Review</a></li>
+
+
         <li>
             {%if request.user.is_authenticated%}
             <a href="{% url 'logout' %}" class="username-tooltip" data-username="{{ request.user.username }}">Logout</a>
