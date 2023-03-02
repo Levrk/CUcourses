@@ -157,3 +157,8 @@ class createReview(LoginRequiredMixin, CreateView):
     ##below is where we send the user after successfully submitting form
     success_url = reverse_lazy('reviews')
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['depts'] = department.objects.all()
+        return context
+    
