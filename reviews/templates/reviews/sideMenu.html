@@ -3,7 +3,6 @@
     <!--    title_phrase = the main title in the side menu
             course_search = when searching this adds inputted value to title, blank otherwise-->
     
-          
     <h1 Style = "text-align: center"> {{title_phrase}} {{course_search}} </h1>
     <!--
             'review' url (reviewDetails.html) doesn't pass a title title_phrase so it will display what's in the if statement
@@ -27,9 +26,9 @@
     <!-- Searchbar -->
     <div class ="searchbar">
     <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
-        <input type="text" name="course_code" placeholder="CSCI 120">
-        <button type="submit">Search</button>
-        </form>  
+        <input id="search-input" type="text" name="course_code" placeholder="CSCI 120">
+        <button id="search-button" type="submit">Search</button>
+        </form>
     </div>
     <!-- end searchbar-->
 
@@ -40,7 +39,7 @@
         </tr>
         {% for dept in depts%}  
         <tr>
-            <td><a href="{% url 'search_reviews' %}?course_code={{ dept.deptCode }}">{{dept.deptName}}</a></td>
+            <td><a class="department-button" href="{% url 'search_reviews' %}?course_code={{ dept.deptCode }}">{{dept.deptName}}</a></td>
         </tr>
         {% empty %}
             <h3>No Departments? :(</h3>

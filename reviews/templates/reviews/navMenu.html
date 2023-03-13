@@ -22,17 +22,17 @@
         {% endif %}
 
         <!-- links -->
-        <li><a href="{% url 'reviews' %}">Home</a></li>
-        <li><a href="{% url 'departments' %}">Departments</a></li>
-        <li><a href="{% url 'create-review' %}">Create Review</a></li>
+        <li><a id="home" href="{% url 'reviews' %}">Home</a></li>
+        <li><a id="departments" href="{% url 'departments' %}">Departments</a></li>
+        <li><a id="create-review"href="{% url 'create-review' %}">Create Review</a></li>
 
 
         <li>
             {%if request.user.is_authenticated%}
-            <a href="{% url 'logout' %}" class="username-tooltip" data-username="{{ request.user.username }}">Logout</a>
+            <a id="logout" href="{% url 'logout' %}" class="username-tooltip" data-username="{{ request.user.username }}">Logout</a>
             
             {%else%}
-            <a href ="{% url 'login' %}">Login</a>
+            <a id="login" href ="{% url 'login' %}">Login</a>
             {% endif %}
         </li>
 
