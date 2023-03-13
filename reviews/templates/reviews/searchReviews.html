@@ -9,12 +9,8 @@
 
 <div class="container">
 
-
- 
     {% include "./sideMenu.html" with title_phrase="Search for: " course_search=course_code %}
     
-
-
     <div class="content">
         
         <table>
@@ -24,7 +20,7 @@
             <tr>
             <td>{{review}}</td>
             <td>{{ review.snippet }}</td>
-            <td><a href="{%url 'review' review.id %}"> View</a></td>
+            <td><a class="view-button" href="{%url 'review' review.id %}"> View</a></td>
             </tr>
             {% empty %}
                 <h3 style="text-align: center;">No Reviews :(</h3>
@@ -32,13 +28,13 @@
         </table>
         <div class="pagination">
             {% if page_obj.has_previous %}
-                <a href="/?page={{ page_obj.previous_page_number }}">&larr;</a>
+                <a id="previous" href="/?page={{ page_obj.previous_page_number }}">&larr;</a>
             {% endif %}
             
                 {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
             
             {% if page_obj.has_next %}
-                <a href="/?page={{ page_obj.next_page_number }}">&rarr;</a>
+                <a id="next" href="/?page={{ page_obj.next_page_number }}">&rarr;</a>
             {% endif %}
         </div>
     </div>

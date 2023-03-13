@@ -18,7 +18,7 @@
     <tr>
     <td>{{dept.deptCode}}</td>
     <td>{{ dept.deptName }}</td>
-    <td><a href="{% url 'search_reviews' %}?course_code={{ dept.deptCode }}">View Reviews</a></td>
+    <td><a class="view-button" href="{% url 'search_reviews' %}?course_code={{ dept.deptCode }}">View Reviews</a></td>
     </tr>
     {% empty %}
         <h3>No Departments?</h3>
