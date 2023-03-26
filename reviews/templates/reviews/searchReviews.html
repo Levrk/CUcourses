@@ -1,44 +1,26 @@
-<header>
-    {% include "./navMenu.html" %}
-</header>
+
 
 <html>
     {% load static %}
-<link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
+    <link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
 
+    <header>
+        {% include "./navMenu.html" %}
+    </header>
 
-<div class="container">
+    <body>
+        <div class="container-fluid-p-0 d-flex flex-row bg-warning">
 
-    {% include "./sideMenu.html" with title_phrase="Search for: " course_search=course_code %}
-    
-    <div class="content">
-        
-        <table>
-            <tr>
-            </tr>
-            {% for review in reviews%}  
-            <tr>
-            <td>{{review}}</td>
-            <td>{{ review.snippet }}</td>
-            <td><a class="view-button" href="{%url 'review' review.id %}"> View</a></td>
-            </tr>
-            {% empty %}
-                <h3 style="text-align: center;">No Reviews :(</h3>
-            {% endfor %}
-        </table>
-        <div class="pagination">
-            {% if page_obj.has_previous %}
-                <a id="previous" href="/?page={{ page_obj.previous_page_number }}">&larr;</a>
-            {% endif %}
+            <div class="sideContainer col-3">
+                {% include "./sideMenu.html" with title_phrase="Search for: " course_search=course_code %}
+            </div>
+
+            <div class="contentTable col-9">
+                {% include "./reviewTable.html" %} 
             
-                {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-            
-            {% if page_obj.has_next %}
-                <a id="next" href="/?page={{ page_obj.next_page_number }}">&rarr;</a>
-            {% endif %}
+            </div>
         </div>
-    </div>
-</div>
+    </body>
 
 
 </html>

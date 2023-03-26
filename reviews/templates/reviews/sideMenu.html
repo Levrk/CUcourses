@@ -11,13 +11,13 @@
             -->
             {% if not title_phrase%}  
                 <!-- what class is the review for-->
-                <h4> Review for {{review.course.courseCode}} - "{{review.course.courseName}}" </h4>
+                <h4 Style = "text-align:center"> Review for {{review.course.courseCode}} - "{{review.course.courseName}}" </h4>
 
                 <!-- Who posted the review-->
                 {% if review.anon %}
-                    <p>Posted by "Anonymous"</p>
+                    <p Style = "text-align:center">Posted by "Anonymous"</p>
                 {% else %}
-                    <p>Posted by {{review.user}}</p>
+                    <p Style = "text-align:center">Posted by {{review.user}}</p>
                 {% endif %}
 
             {% else %}
@@ -37,7 +37,7 @@
 
     <!-- Dept table-->
     <div class="deptTableContainer">
-        <table class="deptTable table table-sm">
+        <table class="deptTable table table-sm border border-2">
             {% for dept in depts%}  
                 <tr>
                     <td><a class="department-button" href="{% url 'search_reviews' %}?course_code={{ dept.deptCode }}">{{dept.deptName}}</a></td>
