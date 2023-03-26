@@ -59,14 +59,17 @@ table {
     background-color: var(--lightgray);
     font-family: 'Source Serif Pro', sans-serif;
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing:0 20px;
     padding: 0px;
     padding-top: 0px;
     /*color: var(--text-color)*/
     }
-  
 
-
+    tr {
+        padding: 10px 0;
+        border-bottom: 1px solid black;
+      }
 /* For hyperlinks */
 a {
     text-decoration: underline;
@@ -82,6 +85,7 @@ a:hover {
 
 
 .pagination{
+    color: black;
     display: flex;
     justify-content: center;
 }
@@ -153,9 +157,12 @@ a:hover {
 
 .reviewTable{
     overflow-y: scroll;
-    background-color: var(--primary-color);
+    background-color: var(--white);
     color: var(--text-color);
     padding: 0;
+    height: 99%; 
+    padding-top: 1%;
+
 
 }
 
@@ -166,8 +173,9 @@ a:hover {
     padding: 0;
 
 }
-.tableReview{
-    height: 60vh;
+.tableReview tr{
+    margin-bottom: 10px;
+    height: calc(100% / 6);
 }
 
 a.view-button {
