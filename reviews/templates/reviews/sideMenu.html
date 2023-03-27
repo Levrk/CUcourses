@@ -11,7 +11,7 @@
             -->
             {% if not title_phrase%}  
                 <!-- what class is the review for-->
-                <h5 Style = "text-align:center"> Review for {{review.course.courseCode}} - "{{review.course.courseName}}" </h5>
+                <h4 class="m-2"Style = "text-align:center"> Review for {{review.course.courseCode}} - "{{review.course.courseName}}" </h4>
 
                 <!-- Who posted the review-->
                 {% if review.anon %}
@@ -30,7 +30,7 @@
         <div class ="searchbar ">
             <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
                 <input id="search-input" type="text" name="course_code" placeholder="CSCI 120" class="input-group-text form-control form-control-sm ">
-                <button id="search-button" class = "btn btn-light btn-sm" type="submit">Search</button>
+                <button id="search-button" class = "btn btn-light btn-sm mt-1" type="submit">Search</button>
             </form>
         </div>
     <!-- end searchbar-->

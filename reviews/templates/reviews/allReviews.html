@@ -6,17 +6,20 @@
 
 
     <header>
-        <!---->
+        <!-- inserts the nav menu-->
         {% include "./navMenu.html" %}   
     </header>
 
     <body>
-        <div class="container-fluid-p-0 d-flex flex-row">    
+        <!-- container for the main portion of the page
+            i.e everything below the nav menu -->
+            
+        <div class="container-fluid-p-0 d-flex flex-row belowNav">    
             <div class="sideContainer col-3">
             {% include "./sideMenu.html" with title_phrase='All Reviews'%}
             </div>
             
-            <div class="contentTable col-9">
+            <div class="contentTable col-9 offset-3">
                 {% include "./reviewTable.html" %} 
                 
             </div>

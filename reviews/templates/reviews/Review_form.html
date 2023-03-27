@@ -1,93 +1,54 @@
-<header>
-    {% include "./navMenu.html" %}
-</header>
 
+<html>
+    {% load static %}
+    <link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
 
-{% load static %}
-<link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
-
-<div class="container">
-
-    
-    
-    <div class="sidebar">
-        <!-- Sidebar content-->
-            <h1 Style = "text-align: center"> New Review </h1>
-
-            <br> <!-- This only exists to be consistent with other pages size-->
-
-            <!-- Searchbar -->
-            <div class ="searchbar">
-            <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
-                <input id="search-input" type="text" name="course_code" placeholder="CSCI 120">
-                <button id="search-button" type="submit">Search</button>
-                </form>  
-            </div>
-            <!-- end searchbar-->
-
-            <!-- Dept table-->
-            <div class="deptTableContainer">
-            <table class="deptTable">
-                <tr>
-                </tr>
-                {% for dept in depts%}  
-                <tr>
-                    <td><a class="department-button" href="{% url 'search_reviews' %}?course_code={{ dept.deptCode }}">{{dept.deptName}}</a></td>
-                </tr>
-                {% empty %}
-                    <h3>No Departments? :(</h3>
-                {% endfor %}
-            </table>
-            </div>
-            <!-- End dept table-->
-        
-
-
-            </div>
+        <header>
+            {% include "./navMenu.html" %}
+        </header>
 
 
 
-    <!-- End of sidebar, beginning of main page content-->
-    <div class="content">
+        <body>
+            <div class="container-fluid-p-0 d-flex flex-row belowNav">
+                <div class="sideContainer col-3">
+                    {% include "./sideMenu.html" with title_phrase='New Review'%}
+                </div>
+                
 
-
-
-        <form method="post">
-            {% csrf_token %}
-    <div>
-        <label for="{{ form.course.id_for_label }}">Course Code</label>
-        {{ form.course }}
-    </div>
-    <div>
-        <label for="{{ form.instructor.id_for_label }}">Course Instructor</label>
-        {{ form.instructor }}
-    </div>
-    <div>
-        <label for="{{ form.reviewText.id_for_label }}">Review</label>
-        {{ form.reviewText }}
-    </div>
-    <div>
-        <label for="{{ form.anon.id_for_label }}" class="left-label">Post Anonymously</label>
-        {{ form.anon }}
-    </div>
-    <input type="hidden" name="user" value="{{ request.user.pk }}">
-    <button type="submit">Submit</button>
-        <!--
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="hidden" name="user" value="{{ request.user.pk }}">
-            <button type="submit">Submit</button> -->
-        </form>
-
-
-
-        
-</div>
-</div>
-
-
-
-
+                <!-- End of sidebar, beginning of main page content-->
+                <div class="contentTable col-9 offset-3 bg-light">
+                    <div>
+                        <form method="post" class="box m-3 text-center rounded">
+                            {% csrf_token %}
+                            <div>
+                                <label for="{{ form.course.id_for_label }}">Course Code</label>
+                                {{ form.course }}
+                            </div>
+                            <div class="m-2">
+                                <label class="m-2" for="{{ form.instructor.id_for_label }}">Course Instructor</label>
+                                {{ form.instructor }}
+                            </div>
+                            <div>
+                                <label class="m-2" for="{{ form.reviewText.id_for_label }}">Review </label>
+                                {{ form.reviewText }}
+                            </div>
+                            <div>
+                                <label for="{{ form.anon.id_for_label }}" class="left-label">Post Anonymously</label>
+                                {{ form.anon }}
+                            </div>
+                            <input type="hidden" name="user" value="{{ request.user.pk }}">
+                            <button type="submit">Submit</button>
+                            <!--
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <input type="hidden" name="user" value="{{ request.user.pk }}">
+                                <button type="submit">Submit</button> -->
+                            </form>
+                    </div>
+                </div>
+        </body>
+</html>
 <!--
 <form method="POST" action="">
     {%csrf_token%}
