@@ -58,18 +58,13 @@ label{
 table {
     background-color: var(--lightgray);
     font-family: 'Source Serif Pro', sans-serif;
-    width: 100%;
     border-collapse: separate;
-    border-spacing:0 20px;
-    padding: 0px;
-    padding-top: 0px;
+
     /*color: var(--text-color)*/
     }
+    
 
-    tr {
-        padding: 10px 0;
-        border-bottom: 1px solid black;
-      }
+
 /* For hyperlinks */
 a {
     text-decoration: underline;
@@ -170,7 +165,6 @@ a:hover {
     height: 92vh;
     background-color: var(--primary-color);
     color: var(--text-color);
-    padding: 0;
 
 }
 .tableReview tr{
