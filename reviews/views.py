@@ -157,7 +157,7 @@ class createReview(LoginRequiredMixin, CreateView):
         
     context_object_name = "review"
     model = review
-    fields = ('course', 'instructor', 'reviewText', 'anon')
+    fields = ('course', 'instructor', 'reviewText', 'anon','textbook','fun','interesting','difficult')
     #review.user = request.user
     ##below is where we send the user after successfully submitting form
     success_url = reverse_lazy('reviews')

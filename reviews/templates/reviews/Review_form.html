@@ -1,4 +1,3 @@
-
 <html>
     {% load static %}
     <link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
@@ -36,6 +35,22 @@
                             <div>
                                 <label for="{{ form.anon.id_for_label }}" class="left-label">Post Anonymously</label>
                                 {{ form.anon }}
+                            </div>
+                            <div>
+                                <label for="{{ form.textbook.id_for_label }}">Textbook Required</label>
+                                {{ form.textbook }}
+                            </div>
+                            <div>
+                                <label for="{{ form.fun.id_for_label }}" class="left-label">Fun</label>
+                                {{ form.fun }}
+                            </div>
+                            <div>
+                                <label for="{{ form.interesting.id_for_label }}" class="left-label">Interesting</label>
+                                {{ form.interesting }}
+                            </div>
+                            <div>
+                                <label for="{{ form.difficult.id_for_label }}" class="left-label">Difficult</label>
+                                {{ form.difficult }}
                             </div>
                             <input type="hidden" name="user" value="{{ request.user.pk }}">
                             <button type="submit">Submit</button>
