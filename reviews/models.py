@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
@@ -51,9 +52,19 @@ class review(models.Model):
     reviewText = models.TextField(max_length=800, null=False)
     anon = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
-    # we should add scalar attributes for 
-    # "How much did you learn in this class?" & 
-    # "How much fun was this class?"
+    textbook = models.BooleanField(default=True)
+    
+    CHOICES = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+    )
+    fun = models.CharField(max_length=1, choices=CHOICES,default='3')
+    interesting = models.CharField(max_length=1, choices=CHOICES,default='3')
+    difficult = models.CharField(max_length=1, choices=CHOICES,default='3')
+
 
     def __str__(self):
         return str(self.course)
