@@ -1,49 +1,55 @@
-<header>
-    {% include "./navMenu.html" %}
-</header>
 
 
 <html>
-<head>
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'allStyles.css' %}">
-
-<div class="container">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'allStyles.css' %}">
     
-    {% include "./sideMenu.html"%}
+    
+    <header>
+        {% include "./navMenu.html" %}
+    </header>
 
-    <!-- End of sidebar, beginning of main page content-->
-    <div class="content">
-        <div class="box"> 
-            <h3> Instructed by: {{review.instructor}} </h3>
-            <h3> Semester Taken: FALL 1776 (PLACEHOLDER) </h3>
-            
-            <div class = "innerlbox">
-            <!-- Unsure how we want the review writer to be displayed
-                {% if review.anon %}
-                <p>"Anonymous" : {{review.reviewText}}</p>
-            {% else %}
-                <p>{{review.user}} : {{review.reviewText}}</p>
-            {% endif %}
-            -->
-
-            <p id="review-text" style="font-size: 20px;">{{review.reviewText}}</p>
-
+    <body>
+    
+        <div class="container-fluid-p-0 d-flex flex-row belowNav" Style = "background: var(--primary-color);">
+            <div class="sideContainer col-3">
+                {% include "./sideMenu.html"%}
             </div>
 
-            <!-- IDEALLY in a perfect world the info in the lines below should be portrayed by a graphic, not a line. -->
-            <h3> Overall: one doritos bag / 5 fritos bags (PLACEHOLDER) </h3>
-            <!-- Positioning in CSS is stupid and i hate it and its not easy in any way whatsover so im giving up on this section, fix this sh*t later-->
-            <h3>Level of difficulty: 1,000 / 5 (PLACEHOLDER)</h3>
-            <h3> Textbook Required?: bruh idk (PLACEHOLDER)</h3>
+            <!-- End of sidebar, beginning of main page content-->
+            <div class="contentTable col-9 bg-light offset-3 ">
+                <div class="box m-3 rounded"> 
+                    <h3> Instructed by: {{review.instructor}} </h3>
+                    <h3> Semester Taken: FALL 1776 (PLACEHOLDER) </h3>
+                    
+                    <div class = "innerlbox">
+                        <!-- Unsure how we want the review writer to be displayed
+                            {% if review.anon %}
+                            <p>"Anonymous" : {{review.reviewText}}</p>
+                        {% else %}
+                            <p>{{review.user}} : {{review.reviewText}}</p>
+                        {% endif %}
+                        -->
+
+                        <p id="review-text" style="font-size: 20px;">{{review.reviewText}}</p>
+
+                    </div>
+
+                    <!-- IDEALLY in a perfect world the info in the lines below should be portrayed by a graphic, not a line. -->
+                    <h3> Overall: one doritos bag / 5 fritos bags (PLACEHOLDER) </h3>
+                    <!-- Positioning in CSS is stupid and i hate it and its not easy in any way whatsover so im giving up on this section, fix this sh*t later-->
+                    <h3>Level of difficulty: 1,000 / 5 (PLACEHOLDER)</h3>
+                    <h3> Textbook Required?: bruh idk (PLACEHOLDER)</h3>
 
 
-            <!-- We really need to add more to submitting a review so its not just a whole page dedicated to a text box the size of a small tweet. We cannot assume
-                users are going to be writing an essay for each class, it will at most be one or two lines. It looks empty and sad.-->
-    </div>
-  </div>
-  
+                    <!-- We really need to add more to submitting a review so its not just a whole page dedicated to a text box the size of a small tweet. We cannot assume
+                        users are going to be writing an essay for each class, it will at most be one or two lines. It looks empty and sad.-->
+                </div>
+            </div>
+        
 
-</div>
-</head>
+        </div>
+
+    </body>
+
 </html>

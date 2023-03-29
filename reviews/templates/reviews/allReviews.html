@@ -1,51 +1,30 @@
 <html>  
     {% load static %}
-<link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
+    <link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
 
 
 
-<div class="fullPage">
-<header>
-    {% include "./navMenu.html" %}
-</header>
 
-<div class="container">
+    <header>
+        <!-- inserts the nav menu-->
+        {% include "./navMenu.html" %}   
+    </header>
 
-    {% include "./sideMenu.html" with title_phrase='All Reviews'%}
-    
-    
-
-    <!-- End of sidebar, beginning of main page content-->
-    <div class="content">
-        <div class="reviewTableContainer">
-        <table class="reviewTable">
-            <tr>
-            </tr>
-            {% for review in reviews%}  
-            <tr>
-            <td>{{review}}</td>
-            <td>{{ review.snippet }}</td>
-            <td><a class="view-button" href="{%url 'review' review.id %}"> View</a></td>
-            </tr>
-            {% empty %}
-                <h3> No Reviews :(</h3>
-            {% endfor %}
-            </table>
+    <body>
+        <!-- container for the main portion of the page
+            i.e everything below the nav menu -->
+            
+        <div class="container-fluid-p-0 d-flex flex-row belowNav">    
+            <div class="sideContainer col-3">
+            {% include "./sideMenu.html" with title_phrase='All Reviews'%}
+            </div>
+            
+            <div class="contentTable col-9 offset-3">
+                {% include "./reviewTable.html" %} 
+                
+            </div>
         </div>
-                <div class="pagination">
-                    {% if page_obj.has_previous %}
-                        <a id="previous" href="/?page={{ page_obj.previous_page_number }}">&larr;</a>
-                    {% endif %}
-                    
-                        {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-                    
-                    {% if page_obj.has_next %}
-                        <a id="next" href="/?page={{ page_obj.next_page_number }}">&rarr;</a>
-                    {% endif %}
-                </div>
-    </div>
-</div>
-</div>
+    </body>
 
 
 </html>

@@ -1,0 +1,33 @@
+<div class ="reviewTable">
+    <div class="d-flex flex-column" style="height: 95%;">
+        
+        <div class="m-2 " style="height: 100%;">
+            <table class="table table-hover" style="height: 100%;">
+                {% for review in reviews|slice:":6" %}  
+                <tr style="height: calc(100% / 6);">
+                    <td>{{review}}</td>
+                    <td><a class="view-button" href="{%url 'review' review.id %}"> {{review.snippet}}</a></td>
+                </tr> 
+
+                {% empty %}
+                <tr>
+                    <td class="box bg-light"><h2> No Reviews :(</h2></td>
+                </tr>
+                {% endfor %}  
+            </table>
+        </div> 
+    </div>
+   
+    <div class="row-xs pagination" style="height: 5%;">
+        {% if page_obj.has_previous %}
+            <a id="previous" href="/?page={{ page_obj.previous_page_number }}">&larr;</a>
+        {% endif %}
+        
+            {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        
+        {% if page_obj.has_next %}
+            <a id="next" href="/?page={{ page_obj.next_page_number }}">&rarr;</a>
+        {% endif %}
+    </div>
+</div>
+

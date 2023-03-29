@@ -1,28 +1,26 @@
 <html>  
     {% load static %}
-<link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
+    <link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
 
-<header>
-    {% include "./navMenu.html" %}
-</header>
+    <header>
+        {% include "./navMenu.html" %}
+    </header>
 
-<br>
-
-<h1 style="text-align:center">Departments</h1>
-
-<table>
-    
-    <tr>
-    </tr>
-    {% for dept in depts%}  
-    <tr>
-    <td>{{dept.deptCode}}</td>
-    <td>{{ dept.deptName }}</td>
-    <td><a class="view-button" href="{% url 'search_reviews' %}?course_code={{ dept.deptCode }}">View Reviews</a></td>
-    </tr>
-    {% empty %}
-        <h3>No Departments?</h3>
-    {% endfor %}
-    </table>
-
+    <body>
+        <div class="container-fluid-p-0 d-flex flex-column belowNav">
+            
+            <div class="text-center bg-light"><h1>Departments</h1></div>
+            <table class="table bg-light">
+                {% for dept in depts%}  
+                <tr>
+                    <td>{{dept.deptCode}}</td>
+                    <td>{{ dept.deptName }}</td>
+                    <td><a class="view-button" href="{% url 'search_reviews' %}?course_code={{ dept.deptCode }}">View Reviews</a></td>
+                </tr>
+                {% empty %}
+                    <h3>No Departments?</h3>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
 </html>
