@@ -3,22 +3,19 @@
 <html>
     {% load static %}
     <link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
+    
 
     <header>
         {% include "./navMenu.html" %}
     </header>
 
     <body>
-        <div class="container-fluid-p-0 d-flex flex-row belowNav">
-
-            <div class="sideContainer col-3">
-                {% include "./sideMenu.html" with title_phrase="Search for: " course_search=course_code %}
-            </div>
-
-            <div class="contentTable col-9 offset-3">
+        <div class="container-fluid-p-0 d-flex align-items-center flex-column belowNav resultsBackground">
+            <div class="contentTable col-9 ">
                 {% include "./reviewTable.html" %} 
             
             </div>
+
         </div>
     </body>
 
