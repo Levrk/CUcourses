@@ -5,6 +5,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, FormView
 from django.urls import reverse_lazy
 from django.core.paginator import Paginator
+from django.db import models
 
 from .models import review, course, department
 from django.contrib.auth.decorators import login_required
@@ -108,23 +109,19 @@ class searchReviews(ListView):
         context['depts'] = department.objects.all()
         return context
 
+
     def get_queryset(self):
-        #gets the desired course code from the form in searchReviews
-        #adds space between dept and course num if there isn't one
-        searchTerm = re.sub(r'(?<=[a-zA-Z])(?=\d)', ' ', self.request.GET.get('course_code').upper()).strip()
-        print(searchTerm)
-        if (any(char.isdigit() for char in searchTerm)):
-        #locating the correct model attribute and generating query set
-            courses = course.objects.filter(courseCode=searchTerm)
-            queryset = review.objects.filter(course__in=courses)
-            return queryset
-        else:
-            #search by dept
-            # adding space so EN doesn't match ENG
-            searchTerm += " "
-            courses = course.objects.filter(courseCode__contains=searchTerm)
-            queryset = review.objects.filter(course__in=courses)
-            return queryset 
+        # gets the desired course code from the form in searchReviews
+        # adds space between dept and course num if there isn't one
+        search_term = re.sub(r'(?<=[a-zA-Z])(?=\d)', ' ', self.request.GET.get('course_code').upper()).strip()
+
+        # filter reviews based on the search term
+        queryset = review.objects.filter(
+            models.Q(course__courseCode__icontains=search_term) |
+            models.Q(course__courseName__icontains=search_term) |
+            models.Q(course__dept__deptName__icontains=search_term)
+        )
+        return queryset
 
 
 class reviewDetails(DetailView):
