@@ -180,6 +180,7 @@ a.view-button:hover {
     color: blue;
 }
 
+
 /* Styling for scrolling table */
 
 /*
@@ -275,7 +276,7 @@ a.department-button:hover {
     /*this class is to stop the content overlapping with the Navbar*/
     .belowNav {
         padding-top:9vh;
-        background: var(--primary-color);
+        background: rgb(241, 241, 241);
     }
 
     
