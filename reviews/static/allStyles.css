@@ -180,6 +180,17 @@ a.view-button:hover {
     color: blue;
 }
 
+.card:hover {
+    cursor: pointer;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease-in-out;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 /* Styling for scrolling table */
 
