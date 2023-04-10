@@ -9,22 +9,24 @@
             {% for review in reviews %}
             <div class="card mb-4" onclick="goToDetails('{% url 'review' review.id %}')">
               <div class="card-body text-black">
-                <div class="row icon-container">
+                <div class="row py-4">
                     <div class="col-2 justify-content-center">
                         <h4 class="card-title"> <i class="bi bi-journals me-2"></i>{{ review }}</h4>
                     </div>
-                    <div class="col-6">
+                    <div class="col-1"></div>
+                    <div class="col-4">
                         <div class="row mb-1"> 
-                            <div class="col-4 icon-container"><h5><i class="bi bi-emoji-laughing me-1"></i> Fun</h5></div>
-                            <div class="col-4 icon-container"> <h5><i class="bi bi-lightbulb me-1"></i> Interesting</h5></div>
-                            <div class="col-4 icon-container"><h5><i class="bi bi-mortarboard me-1"></i> Difficulty</h5></div>  
+                            <div class="col-3 icon-container"><h6><i class="bi bi-emoji-laughing me-1"></i> Fun</h6></div>
+                            <div class="col-5 icon-container"> <h6><i class="bi bi-lightbulb me-1"></i> Interesting</h6></div>
+                            <div class="col-4 icon-container"><h6><i class="bi bi-mortarboard me-1"></i> Difficulty</h6></div>  
                         </div>
                         <div class="row">
-                            <div class="col-4 icon-container"> <h5>{{review.fun}}</h5></div>
-                            <div class="col-4 icon-container"> <h5>{{review.interesting}}</h5></div>
-                            <div class="col-4 icon-container"> <h5>{{review.difficult}}</h5></div>  
+                            <div class="col-3 icon-container"> <h6>{{review.fun}}</h6></div>
+                            <div class="col-5 icon-container"> <h6>{{review.interesting}}</h6></div>
+                            <div class="col-4 icon-container"> <h6>{{review.difficult}}</h6></div>  
                         </div>  
                     </div>
+                    <div class="col-1"></div>
                     <div class="col-4"> 
                         <p class="card-text"> {{ review.snippet }}</p>   
                     </div>

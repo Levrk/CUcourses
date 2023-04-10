@@ -182,9 +182,10 @@ a.view-button:hover {
 
 .card:hover {
     cursor: pointer;
-    background-color: #f8f9fa;
+    background-color: #d4d8dc;
     transition: all 0.3s ease-in-out;
 }
+
 
 .icon-container {
     display: flex;
