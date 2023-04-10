@@ -119,7 +119,7 @@ class searchReviews(ListView):
     def get_queryset(self):
         # gets the desired course code from the form in searchReviews
         # adds space between dept and course num if there isn't one
-        search_term = re.sub(r'(?<=[a-zA-Z])(?=\d)', ' ', self.request.GET.get('search_terms').upper()).strip()
+        search_term = self.request.GET.get('search_terms')
 
         # filter reviews based on the search term
         queryset = review.objects.filter(
