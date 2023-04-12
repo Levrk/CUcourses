@@ -95,33 +95,9 @@ class HomeView(ListView):
     Template file -> "homePage.html"
     """
     model = review
-    context_object_name = "reviews"
-    template_name = "homePage.html"
+    context_object_name = "home"
+    template_name = "reviews/homePage.html"
 
-    def get_context_data(self, *args, **kwargs):
-        # getting context variables so search terms can be referenced in searchReviews template
-        context = super().get_context_data(*args, **kwargs)
-        context['course_code'] = self.request.GET.get('course_code').upper()
-        context['depts'] = department.objects.all()
-        return context
-    
-    def get_queryset(self):
-        #gets the desired course code from the form in searchReviews
-        #adds space between dept and course num if there isn't one
-        searchTerm = re.sub(r'(?<=[a-zA-Z])(?=\d)', ' ', self.request.GET.get('course_code').upper()).strip()
-        print(searchTerm)
-        if (any(char.isdigit() for char in searchTerm)):
-        #locating the correct model attribute and generating query set
-            courses = course.objects.filter(courseCode=searchTerm)
-            queryset = review.objects.filter(course__in=courses)
-            return queryset
-        else:
-            #search by dept
-            # adding space so EN doesn't match ENG
-            searchTerm += " "
-            courses = course.objects.filter(courseCode__contains=searchTerm)
-            queryset = review.objects.filter(course__in=courses)
-            return queryset 
 
 class deptView(ListView):
     """
