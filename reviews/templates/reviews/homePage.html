@@ -9,10 +9,12 @@
         background-repeat: no-repeat;
         background-size: cover;
       }
-      p-2{
-        background-image: url('../static/clark_background.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
+      input[type="text"] {
+        width: 50vw;
+        border-radius: 10px;
+      }
+      button[id="search-button"]{
+        align-self: center;
       }
     </style>
   </head>
@@ -35,12 +37,14 @@
             <br>
             <br>
           <div class="p-2"><h1>Welcome to CUCourses!</h1> </div>
-          <div class="searchbar flex-fill vh-33">
-            <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
-              <input id="search-input" type="text" name="search_terms" placeholder="Search for Course ID or Department" class="input-group-text form-control form-control-lg">
+          <div class="mainsearch flex-fill vh-33">
+            <mainform action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
+              <input id="search-input" type="text" name="search_terms" placeholder="Search for Course ID or Department" class="input-group-text form-control form-control-lg" width=100%>
               <input type="hidden" name="page" value="1">
+              <div class="text-center">
               <button id="search-button" class="btn btn-light btn-lg mt-1 align-items-center" type="submit">Search</button>
-            </form>
+              </div>
+            </mainform>
          </div>
 
          <br>
@@ -56,24 +60,6 @@
         </div>
         
       </body>
-
-      <!--
-    <body>
-        <!-- container for the main portion of the page
-            
-            
-                <div class="container-fluid-p-0 d-flex flex-row belowNav">   
-                <div class ="searchbar ">
-                    <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
-                        <input id="search-input" type="text" name="search_terms" placeholder="Search for Course ID or Department" class="input-group-text form-control form-control-sm ">
-                        <input type="hidden" name="page" value="1">
-                        <button id="search-button" class = "btn btn-light btn-sm mt-1" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-            
-        </div>
-    </body> -->
 
 
 </html>

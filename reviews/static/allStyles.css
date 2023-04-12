@@ -38,6 +38,13 @@ form {
     padding: 1cm;
     /*box-shadow: var(--shadow);*/
 }
+.mainform:form {
+    text-align: left;
+    color: var(--text-color);
+    padding: 1cm;
+    width: 100%;
+}
+
 label{
     display: block;
     margin-bottom: 5px;
@@ -125,6 +132,7 @@ a:hover {
     text-align: left;
     border-radius: 2%;
     box-shadow: var(--shadow);
+    
 }
 
 /* Darker grey box, to be used within normal boxes */
@@ -230,6 +238,10 @@ a.view-button:hover {
 .searchbar{
     overflow-x: inherit;
 }
+.mainSearch:searchbar{
+    overflow-x: inherit;
+    width: 100%;
+}
 
 .sidebar {
     height: 92vh;
@@ -261,10 +273,6 @@ a.department-button:hover {
 /* Sidebar styling ends */
 
 /* Styling for Home Menu */
-
-.MainSearch:searchbar{
-    
-}
 
 
 /*  Styling for the NAV Menu. mainNav is the id */

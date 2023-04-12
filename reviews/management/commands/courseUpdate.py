@@ -99,6 +99,6 @@ class Command(BaseCommand):
         
         
         #RUN THIS IN TERMINAL VIA:
-        #python manage.py courseUpdate "path/to/excel/file.xlsx"
+        #python manage.py courseUpdate ".\ClassesSeasonYear.xlsx"
         #instead of path/to/excel/file.xlsx, put in the file path of the excel document
         #also you NEED to install the new dependencies, pandas and openpyx
