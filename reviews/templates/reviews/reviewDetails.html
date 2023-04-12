@@ -22,7 +22,7 @@
                     <h3> Instructed by: {{review.instructor}} </h3>
                     <h3> Semester Taken: FALL 1776 (PLACEHOLDER) </h3>
                     
-                    <div class = "innerlbox">
+                    <div class = "innerlbox ">
                         <!-- Unsure how we want the review writer to be displayed
                             {% if review.anon %}
                             <p>"Anonymous" : {{review.reviewText}}</p>
@@ -36,10 +36,11 @@
                     </div>
 
                     <!-- IDEALLY in a perfect world the info in the lines below should be portrayed by a graphic, not a line. -->
-                    <h3> Overall: one doritos bag / 5 fritos bags (PLACEHOLDER) </h3>
+                    <h3> Fun: {{review.fun}} / 5 </h3>
                     <!-- Positioning in CSS is stupid and i hate it and its not easy in any way whatsover so im giving up on this section, fix this sh*t later-->
-                    <h3>Level of difficulty: 1,000 / 5 (PLACEHOLDER)</h3>
-                    <h3> Textbook Required?: bruh idk (PLACEHOLDER)</h3>
+                    <h3> Level of difficulty: {{review.difficult}} / 5 </h3>
+                    <h3> Interesting: {{review.interesting}} / 5</h3>
+                    
 
 
                     <!-- We really need to add more to submitting a review so its not just a whole page dedicated to a text box the size of a small tweet. We cannot assume
