@@ -3,24 +3,47 @@
 
 <div class ="reviewTable">
 
-    <div class="d-flex flex-column" style="height: 95%;">
-        
-        <div class="m-2 " style="height: 100%;">
-            <table class="table table-hover" style="height: 100%;">
-                {% for review in reviews|slice:":6" %}  
-                <tr onclick="goToDetails('{%url 'review' review.id %}')"  style="height: calc(100% / 6);">
-                    <td>{{review}}</td>
-                    <td><a class="view-button" href="{%url 'review' review.id %}"> {{review.snippet}}</a></td>
-                </tr> 
-
-                {% empty %}
-                <tr>
-                    <td class="box bg-light"><h2> No Reviews :(</h2></td>
-                </tr>
-                {% endfor %}  
-            </table>
-        </div> 
-    </div>
+    <div class="container d-flex flex-column" style="height: 95%;">
+        <div class="m-2" style="height: 100%; overflow-y: scroll;">
+          <div class="card-deck">
+            {% for review in reviews %}
+            <div class="card mb-4" onclick="goToDetails('{% url 'review' review.id %}')">
+              <div class="card-body text-black">
+                <div class="row py-4">
+                    <div class="col-2 justify-content-center">
+                        <h4 class="card-title text"> <i class="bi bi-journals me-2"></i>{{ review }}</h4>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-4">
+                        <div class="row mb-1"> 
+                            <div class="col-3 icon-container"><h6><i class="bi bi-emoji-laughing me-1"></i> Fun</h6></div>
+                            <div class="col-5 icon-container"> <h6><i class="bi bi-lightbulb me-1"></i> Interesting</h6></div>
+                            <div class="col-4 icon-container"><h6><i class="bi bi-mortarboard me-1"></i> Difficulty</h6></div>  
+                        </div>
+                        <div class="row">
+                            <div class="col-3 icon-container"> <h6>{{review.fun}}</h6></div>
+                            <div class="col-5 icon-container"> <h6>{{review.interesting}}</h6></div>
+                            <div class="col-4 icon-container"> <h6>{{review.difficult}}</h6></div>  
+                        </div>  
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-4"> 
+                        <p class="card-text"> {{ review.snippet }}</p>   
+                    </div>
+                    
+                </div>
+              </div>
+            </div>
+            {% empty %}
+            <div class="card bg-light">
+              <div class="card-body text-black">
+                <h2 class="card-title">No Reviews :(</h2>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
 
     <div class="row-xs pagination" style="height: 5%;">
         {% if page_obj.has_previous %}
