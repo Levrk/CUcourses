@@ -10,13 +10,9 @@
 
         <body>
             <div class="container-fluid-p-0 d-flex flex-row belowNav">
-                <div class="sideContainer col-3">
-                    {% include "./sideMenu.html" with title_phrase='New Review'%}
-                </div>
                 
-
                 <!-- End of sidebar, beginning of main page content-->
-                <div class="contentTable col-9 offset-3 bg-light">
+                <div class="contentTable bg-light">
                     <div>
                         <form method="post" class="box m-3 text-center rounded">
                             {% csrf_token %}
