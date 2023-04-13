@@ -41,7 +41,7 @@
         <table class="deptTable table table-sm border border-2">
             {% for dept in depts%}  
                 <tr>
-                    <td><a class="department-button" href="{% url 'search_reviews' %}?search_terms={{ dept.deptCode }}&page=1">{{dept.deptName}}</a></td>
+                    <td><a class="department-button" href="{% url 'search_reviews' %}?search_terms={{ dept.deptName }}&page=1">{{dept.deptName}}</a></td>
                 </tr>
             {% empty %}
                 <h3>No Departments? :(</h3>
