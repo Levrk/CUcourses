@@ -1,44 +1,11 @@
+{% load static %}
+
 <div class="sidebar" style="height: 97%; padding-top: 3%;">
     <!-- Sidebar content-->
-    <!--    title_phrase = the main title in the side menu
-            course_search = when searching this adds inputted value to title, blank otherwise-->
-
-        <div class = "sidebarText align-bottom">
-            <h1 Style = "text-align: center"> {{title_phrase}} {{course_search}} </h1>
-            <!--
-                    'review' url (reviewDetails.html) doesn't pass a title title_phrase so it will display what's in the if statement
-                    The other two pages that use the side bar won't show whats in the if statement, since the initialized
-            -->
-            {% if not title_phrase%}  
-                <!-- what class is the review for-->
-                <h4 class="m-2"Style = "text-align:center"> Review for {{review.course.courseCode}} - "{{review.course.courseName}}" </h4>
-
-                <!-- Who posted the review-->
-                {% if review.anon %}
-                    <p Style = "text-align:center">Posted by "Anonymous"</p>
-                {% else %}
-                    <p Style = "text-align:center">Posted by {{review.user}}</p>
-                {% endif %}
-
-            {% else %}
-            {% endif %}
-        </div>
-
-        <!-- <br>  This only exists to be consistent with other pages size-->
-
-        <!-- Searchbar -->
-        <div class ="searchbar ">
-            <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
-                <input id="search-input" type="text" name="search_terms" placeholder="Search for Course/Department" class="input-group-text form-control form-control-sm ">
-                <input type="hidden" name="page" value="1">
-                <button id="search-button" class = "btn btn-light btn-sm mt-1" type="submit">Search</button>
-            </form>
-        </div>
-    <!-- end searchbar-->
-
     <!-- Dept table-->
-    <div class="deptTableContainer">
-        <table class="deptTable table table-sm border border-2">
+    
+    <div id="departmentTable" class="deptTableContainer deptTableHidden">
+        <table  class="deptTable table table-sm border border-2">
             {% for dept in depts%}  
                 <tr>
                     <td><a class="department-button" href="{% url 'search_reviews' %}?search_terms={{ dept.deptCode }}&page=1">{{dept.deptName}}</a></td>
@@ -48,5 +15,29 @@
             {% endfor %}
         </table>
     </div>
+    <button id='toggle' class="sidebar-toggle" onclick="toggle()">></button>
     <!-- End dept table-->
 </div>
+
+<script>
+
+var visible = false;
+
+function toggle() {
+element = document.getElementById("departmentTable");
+toggleButton = document.getElementById("toggle");
+if (visible == false) {
+    element.classList.remove("deptTableHidden");
+    element.classList.add("deptTableExpanded");
+    toggleButton.innerHTML = "<";
+    visible = true;
+}
+else {
+    element.classList.remove("deptTableExpanded");
+    element.classList.add("deptTableHidden");
+    visible = false;
+    toggleButton.innerHTML = ">";
+}
+}
+
+</script>
