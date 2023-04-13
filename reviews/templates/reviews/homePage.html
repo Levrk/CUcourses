@@ -5,7 +5,7 @@
     <head>
     <style>
       body {
-        background-color: rgb(241, 241, 241);
+        background-color: rgb(241, 241, 241) !important;
       }
       input[type="text"] {
         width: 50vw;
@@ -30,18 +30,18 @@
 
     <body>
         <!--<div class="container-fluid-p-0 d-flex flex-row belowNav justify-content-center align-items-center vh-100">-->
-          <div class="d-flex flex-column belowNav justify-content-center align-items-center">
+          <div class="d-flex flex-column belowNav justify-content-center align-items-center h-100">
             <br>
             
           <div class="p-2"><h1>Welcome to CUCourses!</h1> </div>
           <div class="mainsearch flex-fill vh-33">
-            <mainform action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
+            <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
               <input id="search-input" type="text" name="search_terms" placeholder="Search for Course ID or Department" style="box-shadow: 2px 4px 4px hsla(0, 0%, 0%, 0.305);" class="input-group-text form-control form-control-lg" width=100% >
               <input type="hidden" name="page" value="1">
               <div class="text-center">
               <button id="search-button" class="btn btn-light btn-lg mt-1 align-items-center" type="submit">Search</button>
               </div>
-            </mainform>
+            </form>
          </div>
 
          <br>
