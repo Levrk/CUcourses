@@ -168,12 +168,28 @@ a:hover {
     padding-top: 1%;
 }
 
+.recentReviewTable{
+    overflow-y: hidden;
+    background-color: var(--white);
+    color: var(--text-color);
+    padding: 0;
+    height: 99%; 
+    padding-top: 1%;
+}
+
 .contentTable {
     height: 92vh;
     background-color: var(--primary-color);
     color: var(--text-color);
 
 }
+
+.tinyContentTable{
+    height: auto;
+    background-color: var(--white);
+    color: var(--text-color);
+}
+
 .tableReview tr{
     margin-bottom: 10px;
     height: calc(100% / 6);
@@ -253,6 +269,7 @@ a.view-button:hover {
 .mainSearch:searchbar{
     overflow-x: inherit;
     width: 100%;
+    box-shadow: var(--shadow);
 }
 
 .sidebar {

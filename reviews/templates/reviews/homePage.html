@@ -5,9 +5,7 @@
     <head>
     <style>
       body {
-        background-image: url('../static/clark_background.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
+        background-color: rgb(241, 241, 241);
       }
       input[type="text"] {
         width: 50vw;
@@ -34,12 +32,11 @@
         <!--<div class="container-fluid-p-0 d-flex flex-row belowNav justify-content-center align-items-center vh-100">-->
           <div class="d-flex flex-column belowNav justify-content-center align-items-center">
             <br>
-            <br>
-            <br>
+            
           <div class="p-2"><h1>Welcome to CUCourses!</h1> </div>
           <div class="mainsearch flex-fill vh-33">
             <mainform action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
-              <input id="search-input" type="text" name="search_terms" placeholder="Search for Course ID or Department" class="input-group-text form-control form-control-lg" width=100%>
+              <input id="search-input" type="text" name="search_terms" placeholder="Search for Course ID or Department" style="box-shadow: 2px 4px 4px hsla(0, 0%, 0%, 0.305);" class="input-group-text form-control form-control-lg" width=100% >
               <input type="hidden" name="page" value="1">
               <div class="text-center">
               <button id="search-button" class="btn btn-light btn-lg mt-1 align-items-center" type="submit">Search</button>
@@ -49,12 +46,11 @@
 
          <br>
          <br>
-         <br>
 
          <!--Shows 3 most recent reviews-->
-         <div class="p-2"><h2>Recent Reviews</h2> </div>   
-          <div class="contentTable col-9">
-              {% include "./reviewTable.html" %} 
+         <div class="p-2"><h4>Create Your Own Reviews!</h4> </div>   
+          <div class="tinyContentTable col-9">
+              {% include "./recentReviewTable.html" %} 
               
           </div>
         </div>

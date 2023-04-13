@@ -44,7 +44,7 @@
                     <td><a class="department-button" href="{% url 'search_reviews' %}?search_terms={{ dept.deptCode }}&page=1">{{dept.deptName}}</a></td>
                 </tr>
             {% empty %}
-                <h3>No Departments? :(</h3>
+                <h3>If youre reading this, something is seriously wrong.</h3>
             {% endfor %}
         </table>
     </div>
