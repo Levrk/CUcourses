@@ -35,12 +35,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Defines form formatting */
 form {
-    text-align: left;
-    background-color: var(--primary-color);
+    
     color: var(--text-color);
-    padding: 1cm;
     /*box-shadow: var(--shadow);*/
 }
+
 label{
     display: block;
     margin-bottom: 5px;
@@ -128,6 +127,7 @@ a:hover {
     text-align: left;
     border-radius: 2%;
     box-shadow: var(--shadow);
+    
 }
 
 /* Darker grey box, to be used within normal boxes */
@@ -164,6 +164,15 @@ a:hover {
     min-width: 75vw;
 }
 
+.recentReviewTable{
+    overflow-y: hidden;
+    background-color: var(--white);
+    color: var(--text-color);
+    padding: 0;
+    height: auto !important; 
+    padding-top: 1%;
+}
+
 .contentTable {
     height: 92vh;
     display: flex;
@@ -174,6 +183,13 @@ a:hover {
     width: 100%;
 
 }
+
+.tinyContentTable{
+    height: 30vh;
+    background-color: var(--white);
+    color: var(--text-color);
+}
+
 .tableReview tr{
     margin-bottom: 10px;
     height: calc(100% / 6);
@@ -248,6 +264,11 @@ a.view-button:hover {
 .searchbar{
     overflow-x: inherit;
 }
+.mainSearch:searchbar{
+    overflow-x: inherit;
+    width: 100%;
+    box-shadow: var(--shadow);
+}
 
 .sidebar {
     height: 92vh;
@@ -299,6 +320,8 @@ a.department-button:hover {
     color: blue;
 }
 /* Sidebar styling ends */
+
+/* Styling for Home Menu */
 
 
 /*  Styling for the NAV Menu. mainNav is the id */

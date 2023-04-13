@@ -85,6 +85,25 @@ class allReviews(ListView):
         context['depts'] = department.objects.all()
         return context
 
+
+
+class HomeView(ListView):
+    """
+    Displays homepage for site
+    
+    Context variable in template -> "reviews"
+    Template file -> "homePage.html"
+    """
+    model = review
+    context_object_name = "reviews"
+    template_name = "reviews/homePage.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['depts'] = department.objects.all()
+        return context
+
+
 class deptView(ListView):
     """
 
