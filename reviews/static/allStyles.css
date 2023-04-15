@@ -32,10 +32,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Defines form formatting */
 form {
-    text-align: left;
-    background-color: var(--primary-color);
     color: var(--text-color);
-    padding: 1cm;
     /*box-shadow: var(--shadow);*/
 }
 label{
@@ -145,6 +142,7 @@ a:hover {
 /*formatting for buttons*/
 .button {
     text-align: center;
+    justify-content: center;
     padding: 1cm;
     font-size: large;
 
@@ -284,6 +282,11 @@ a.department-button:hover {
         position: fixed;
         z-index: 999;
     }
+
+    #search-input {
+        min-width: 500px;
+        border-radius: 20px;
+    }
     
     /*this class is to stop the content overlapping with the Navbar*/
     .belowNav {
@@ -303,9 +306,10 @@ a.department-button:hover {
 
     #mainNav li{
         display: inline-flex;
-        vertical-align: bottom;
+        vertical-align: middle;
         padding: 10px 10px;
         align-items: center;
+        height: 8vh;
     }
     
     /* push the second-to-last menu item to the right */
