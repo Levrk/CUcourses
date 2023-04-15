@@ -400,6 +400,7 @@ a.department-button:hover {
         background-color: #555;
         color: var(--text-color);
         padding: 5px;
+        margin-top: 5px;
         border-radius: 5px;
         font-size: 14px;
         white-space: nowrap;
