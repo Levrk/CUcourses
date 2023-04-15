@@ -6,35 +6,40 @@
 /* VARIABLES */
 :root {
 --primary-color: rgb(187, 0, 0);
---secondary-color: rgba(100, 100, 100, 0.69);;
+--secondary-color: rgba(99, 99, 99, 0.69);;
 --tertiary-color: rgb(250, 255, 184);
 --primary-dark: rgb(95, 0, 0);
 --black: rgb(27, 27, 27);
 --white: rgb(255, 255, 255);
 --text-color: rgb(225, 225, 225);
 --darkgray: rgb(50,50,50);
---lightgray: rgba(255, 255, 255);
+--lightgray: rgb(241, 241, 241);
 --gradient-vertical: linear-gradient(rgb(187, 0, 0), rgb(255, 255, 255));
 --gradient-horizontal: linear-gradient(to right,rgb(187, 0, 0), rgb(255, 255, 255));
 --shadow: 2px 4px 4px hsla(0, 0%, 0%, 0.305);
+--body-font: 'Crimson Text', Times, serif;
+--heading-font: 'Crimson Text', Times, serif;
 }
 
 /*Defines page background*/
 body{
     background-color: var(--white);
+    
     }
 
 /* Defines font for all headers*/
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Crimson Text', 'Source Serif Pro' , sans-serif;
+    font-family: var(--heading-font);
     /*text-align: center;*/
 }
 
 /* Defines form formatting */
 form {
+    
     color: var(--text-color);
     /*box-shadow: var(--shadow);*/
 }
+
 label{
     display: block;
     margin-bottom: 5px;
@@ -54,7 +59,7 @@ label{
 /*Defines formatting for tables */
 table {
     background-color: var(--lightgray);
-    font-family: 'Source Serif Pro', sans-serif;
+    font-family: var(--body-font);
     border-collapse: separate;
 
     /*color: var(--text-color)*/
@@ -122,6 +127,7 @@ a:hover {
     text-align: left;
     border-radius: 2%;
     box-shadow: var(--shadow);
+    
 }
 
 /* Darker grey box, to be used within normal boxes */
@@ -136,7 +142,6 @@ a:hover {
 }
 
 /*End of box-related classes*/
-
 
 
 /*formatting for buttons*/
@@ -156,14 +161,36 @@ a:hover {
     padding: 0;
     height: 99%; 
     padding-top: 1%;
+    width: 75%;
+    min-width: 75vw;
+}
+
+.recentReviewTable{
+    overflow-y: hidden;
+    background-color: var(--white);
+    color: var(--text-color);
+    padding: 0;
+    height: auto !important; 
+    padding-top: 1%;
 }
 
 .contentTable {
     height: 92vh;
-    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: var(--white);
     color: var(--text-color);
+    width: 100%;
 
 }
+
+.tinyContentTable{
+    height: 30vh;
+    background-color: var(--white);
+    color: var(--text-color);
+}
+
 .tableReview tr{
     margin-bottom: 10px;
     height: calc(100% / 6);
@@ -231,34 +258,59 @@ a.view-button:hover {
 /* Sidebar stying begins */
 .sideContainer {
     height: 92vh;
-    background-color: var(--primary-color);
+    background-color: var(--lightgray);
     color: var(--text-color);
-    padding: 0;
-    position: fixed;
 }
 
 .searchbar{
     overflow-x: inherit;
 }
+.mainSearch:searchbar{
+    overflow-x: inherit;
+    width: 100%;
+    box-shadow: var(--shadow);
+}
 
 .sidebar {
     height: 92vh;
-    background-color: var(--primary-color);
+    background-color: var(--lightgray);
     color: var(--text-color);
     padding: 0;
     display: flex;
-    flex-direction: column;
-
+    flex-direction: row;
+    justify-content: center;
 }
 
 .deptTableContainer {
-    height: 70%;
+    height: 100%;
     overflow-y: scroll;
     bottom: 0;
-    padding:2%;
-
+    transition: all .4s ;
 }
 
+.deptTableExpanded{
+    margin-left:1.5vw;
+    width: 20vw ;
+    opacity: 1;
+}
+
+.deptTableHidden{
+    margin-left:0vw;
+    width: 0px;
+    opacity: 0;
+}
+
+.deptTable{
+ background-color: var(--white);
+}
+
+.sidebar-toggle{
+    background-color: var(--lightgray);
+    color: rgb(0, 0, 0);
+    border: none;
+    width: 1.5vw;
+    height: 100%;
+}
 
 a.department-button {
     color: black;
@@ -269,6 +321,8 @@ a.department-button:hover {
     color: blue;
 }
 /* Sidebar styling ends */
+
+/* Styling for Home Menu */
 
 
 /*  Styling for the NAV Menu. mainNav is the id */
@@ -320,7 +374,7 @@ a.department-button:hover {
     #mainNav a{
         color: var(--text-color);
         text-decoration: none;
-        font-family: 'Crimson Text', 'Source Serif Pro' , sans-serif;
+        font-family: var(--heading-font);
         font-size: 22px;
         border-top: 2px solid transparent;
     }
