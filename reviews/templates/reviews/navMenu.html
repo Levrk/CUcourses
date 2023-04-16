@@ -9,38 +9,54 @@
 
 <body>   
 <!-- start of Nav Menu content-->
-    <nav id = "mainNav" class = "navbar">
+    <nav id = "mainNav" class = "navbar p-0">
         <div class="container-fluid">
-            <ul>
+            <ul class="mr-0 pr-0">
 
                 <!-- The class will stop the hover effect for the logo in the css file --> 
-                <li><a class = "navbar noHover" href="{% url 'reviews' %}"> 
-                        <img src= "{% static 'Cupic.png' %}" alt="Logos" width="70" height="50">  
+                <li><a class = "navbar noHover" href="{% url 'homePage' %}"> 
+                        <img src= "{% static 'cuCoursesLogo.png' %}" alt="Logos" width="160" height="70" class="logo">  
                     </a>
                 </li>
 
-                {%if request.user.is_authenticated%}
-                    <li>
-                        <a class="noHover"> Hi {{request.user|title}}</a>
-
-                    </li>
-                {%else%}
-                {% endif %}
+                <li>
+                    
+                </li>
             </ul>
-            <ul class = "navbar-right">
+
+            {% if request.path != '/' %}
+            <div class ="navSearch">
+                <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on" class = "m-0 p-0">
+                    <div class="row">
+                        <div class="col-11 p-0">
+                            <input id="search-input" type="text" name="search_terms" placeholder="Search for Course/Department" class="input-group-text form-control form-control-sm">
+                        <input type="hidden" name="page" value="1">
+                        </div>
+                        <div class="col-1 justify-content-center ps-2">
+                            <button id="search-button" class = "btn btn-light  mt-1" type="submit"><i class="bi bi-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+             </div>
+             {% endif %}
+            
+            
+            <ul class = "navbar-right m-0 p-0">
 
                 <!-- links -->
-                <li><a id="home" href="{% url 'reviews' %}">Home</a></li>
-                <li><a id="departments" href="{% url 'departments' %}">Departments</a></li>
                 <li><a id="create-review"href="{% url 'create-review' %}">Create Review</a></li>
 
 
                 <li>
                     {%if request.user.is_authenticated%}
-                    <a id="logout" href="{% url 'logout' %}" class="username-tooltip" data-username="{{ request.user.username }}">Logout</a>
+                    <a id="logout" href="{% url 'logout' %}" class="username-tooltip noHover mt-2" data-username="{{ request.user.username }}"> 
+                        <h3><i class="bi bi-box-arrow-right"></i></h3>
+                    </a>
                     
                     {%else%}
-                    <a id="login" href ="{% url 'login' %}">Login</a>
+                    <a id="login" href ="{% url 'login' %}" class="noHover mt-2">
+                        <h3><i class="bi bi-box-arrow-in-right"></i></h3>
+                    </a>
                     {% endif %}
                 </li>
 
