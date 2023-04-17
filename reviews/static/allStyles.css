@@ -143,7 +143,14 @@ a:hover {
 
 /*End of box-related classes*/
 
-/* formatting for star imgs */
+/* formatting for review details page */
+
+.review-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .ratings-row{
     display:flex;
@@ -156,6 +163,10 @@ a:hover {
     flex-direction: column;
 }
 
+.report-button{
+    width: 7vw;
+    box-shadow: var(--shadow);
+}
 
 .stars{
 width: 20vw;
@@ -204,7 +215,7 @@ padding: 5px;
 }
 
 .unrestrictedContentTable {
-    height: fit-content;
+    height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -245,40 +256,7 @@ a.view-button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-/* Styling for scrolling table */
-
-/*
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background-color: var(--primary-color);
-    }
-    .deptTableContainer {
-        flex-shrink: 1;
-        overflow-y: scroll;
-        overflow-x:hidden;
-    }
-
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background-color: var(--primary-color);
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: var(--white);
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: var(--white);
-    }
-*/
+}
 
 
 /* End of scrolling table styling */

@@ -15,6 +15,7 @@
             
             <!-- End of sidebar, beginning of main page content-->
             <div class="unrestrictedContentTable  bg-light  ">
+                <div class="review-details">
                 <div class="box m-3 rounded"> 
                     <h3> {{review.course}} - {{review.course.courseName}} </h3>
                     <h3> Course Instructor: {{review.instructor}} </h3>
@@ -49,9 +50,13 @@
                     {% else %}
                     <h3> Reviewed by: {{review.user}} </h3>
                     {% endif %}
+
+                    
                 </div>
+                <a href="mailto:lrolandkalb@clarku.edu?subject=Review_Report&body=Reporting Review #{{review.id}}"><img class="report-button" src="{% static '/report.png' %}"></img></a>
+                
             </div>
-        
+            
 
         </div>
 
