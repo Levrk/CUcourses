@@ -14,34 +14,41 @@
         <div class="container-fluid-p-0 d-flex flex-row belowNav" Style = "background: var(--primary-color);">
             
             <!-- End of sidebar, beginning of main page content-->
-            <div class="contentTable  bg-light  ">
+            <div class="unrestrictedContentTable  bg-light  ">
                 <div class="box m-3 rounded"> 
-                    <h3> Instructed by: {{review.instructor}} </h3>
-                    <h3> Semester Taken: FALL 1776 (PLACEHOLDER) </h3>
+                    <h3> {{review.course}} - {{review.course.courseName}} </h3>
+                    <h3> Course Instructor: {{review.instructor}} </h3>
                     
                     <div class = "innerlbox ">
-                        <!-- Unsure how we want the review writer to be displayed
-                            {% if review.anon %}
-                            <p>"Anonymous" : {{review.reviewText}}</p>
-                        {% else %}
-                            <p>{{review.user}} : {{review.reviewText}}</p>
-                        {% endif %}
-                        -->
 
                         <p id="review-text" style="font-size: 20px;">{{review.reviewText}}</p>
 
                     </div>
 
                     <!-- IDEALLY in a perfect world the info in the lines below should be portrayed by a graphic, not a line. -->
-                    <h3> Fun: {{review.fun}} / 5 </h3>
-                    <!-- Positioning in CSS is stupid and i hate it and its not easy in any way whatsover so im giving up on this section, fix this sh*t later-->
-                    <h3> Level of difficulty: {{review.difficult}} / 5 </h3>
-                    <h3> Interesting: {{review.interesting}} / 5</h3>
                     
+                    <div class="ratings-row">
+                        <div class="ratings-column">
+                            <h3>Fun:</h3>
+                            <img class="stars" src="{% static '/stars/'|add:review.fun|add:'stars.png' %}">
+                        </div>
 
+                        <div class="ratings-column">
+                            <h3>Interesting:</h3>
+                            <img class="stars" src="{% static '/stars/'|add:review.interesting|add:'stars.png' %}">
+                        </div>
 
-                    <!-- We really need to add more to submitting a review so its not just a whole page dedicated to a text box the size of a small tweet. We cannot assume
-                        users are going to be writing an essay for each class, it will at most be one or two lines. It looks empty and sad.-->
+                        <div class="ratings-column">
+                            <h3>Difficult:</h3>
+                            <img class="stars" src="{% static '/stars/'|add:review.difficult|add:'stars.png' %}">
+                        </div>
+                    </div>
+
+                    {% if review.anon %}
+                    <h3> Reviewed by: Anonymous </h3>
+                    {% else %}
+                    <h3> Reviewed by: {{review.user}} </h3>
+                    {% endif %}
                 </div>
             </div>
         
