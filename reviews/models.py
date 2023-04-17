@@ -71,7 +71,10 @@ class review(models.Model):
 
     def snippet (self):
         """ returns first 150 characters of [reviewText] """
-        return "\"" + self.reviewText[:150] + "...\""
+        if len(self.reviewText)>151:
+            return "\"" + self.reviewText[:150] + "...\""
+        else:
+            return "\"" + self.reviewText + "\""
     
     class Meta:
         ordering = ['created']
