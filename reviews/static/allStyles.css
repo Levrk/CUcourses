@@ -94,7 +94,7 @@ a:hover {
 /*normal box*/
 .box {
     width: auto;
-    height: auto;
+    height: fit-content;
     margin: 0 auto;
     padding: 20px;
     border: solid 3px var(--lightgray);
@@ -133,16 +133,33 @@ a:hover {
 /* Darker grey box, to be used within normal boxes */
 .innerlbox {
     /* this is where the review text is displayed*/
-    width: auto;
+    width: 60vw;
     height: auto;
-    margin: 0 auto;
+    margin-bottom: 10px;
     padding: 20px;
     background-color: var(--white);
-    text-align: left;
+    text-align: center;
 }
 
 /*End of box-related classes*/
 
+/* formatting for star imgs */
+
+.ratings-row{
+    display:flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.ratings-column{
+    display:flex;
+    flex-direction: column;
+}
+
+
+.stars{
+width: 20vw;
+}
 
 /*formatting for buttons*/
 .button {
@@ -176,6 +193,17 @@ a:hover {
 
 .contentTable {
     height: 92vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: var(--white);
+    color: var(--text-color);
+    width: 100%;
+
+}
+
+.unrestrictedContentTable {
+    height: fit-content;
     display: flex;
     flex-direction: row;
     justify-content: center;
