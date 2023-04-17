@@ -12,49 +12,65 @@
             <div class="container-fluid-p-0 d-flex flex-row belowNav">
                 
                 <!-- End of sidebar, beginning of main page content-->
-                <div class="contentTable bg-light">
-                    <div>
-                        <form method="post" class="box m-3 text-center rounded">
+                <div class="contentTable">
+                    <div class="col-7 pt-4" >
+                        <form method="post" class="border-1 m-3 rounded form-control bg-light">
                             {% csrf_token %}
-                            <div>
-                                <label for="{{ form.course.id_for_label }}">Course Code</label>
-                                {{ form.course }}
+                            <div class="form-group text-center">
+                                <div class="row py-3">
+                                    <div class="col-6 p-0">
+                                        <div class="form-group form-check-inline">
+                                            <label for="{{ form.course.id_for_label }}" class="me-2">Course ID</label>
+                                            <div class="form-control-md form-check-inline ">{{ form.course }} </div>
+                                            
+                                        </div>
+                                    </div>
+                                    
+        
+                                    <div class="col-6 p-0">
+                                        <div class="form-group form-check-inline">
+                                            <label class="me-2 form-check-inline" for="{{ form.instructor.id_for_label }}">Instructor</label>
+                                            <input class="form-control form-check-inline" type="text" name="{{ form.instructor.name}}" placeholder="Enter name" style="width: 50%;">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="m-2">
-                                <label class="m-2" for="{{ form.instructor.id_for_label }}">Course Instructor</label>
-                                {{ form.instructor }}
+                            
+                            <div class="form-group my-3">
+                                <textarea class="form-control" placeholder="Enter your review here" name="{{ form.reviewText.name }}" id="{{ form.reviewText.id_for_label }}" rows="7"></textarea>
                             </div>
-                            <div>
-                                <label class="m-2" for="{{ form.reviewText.id_for_label }}">Review </label>
-                                {{ form.reviewText }}
+
+                            <div class="form-group text-center my-3">
+                                <div class="form-group form-check-inline">
+                                    <label for="{{ form.fun.id_for_label }}" class="left-label">Fun</label>
+                                    {{ form.fun }}
+                                </div>
+                                <div class="form-group form-check-inline">
+                                    <label for="{{ form.interesting.id_for_label }}" class="left-label">Interesting</label>
+                                    {{ form.interesting }}
+                                </div>
+                                <div class="form-group form-check-inline">
+                                    <label for="{{ form.difficult.id_for_label }}" class="left-label">Difficult</label>
+                                    {{ form.difficult }}
+                                </div>
                             </div>
-                            <div>
-                                <label for="{{ form.anon.id_for_label }}" class="left-label">Post Anonymously</label>
-                                {{ form.anon }}
-                            </div>
-                            <div>
+
+                            <div class="form-group text-center my-3">
                                 <label for="{{ form.textbook.id_for_label }}">Textbook Required</label>
                                 {{ form.textbook }}
                             </div>
-                            <div>
-                                <label for="{{ form.fun.id_for_label }}" class="left-label">Fun</label>
-                                {{ form.fun }}
+
+                            <div class="form-group text-center my-3">
+                                <div class="form-group ">
+                                    <label for="{{ form.anon.id_for_label }}" class="left-label">Post Anonymously</label>
+                                    {{ form.anon }}
+                                </div>
                             </div>
-                            <div>
-                                <label for="{{ form.interesting.id_for_label }}" class="left-label">Interesting</label>
-                                {{ form.interesting }}
-                            </div>
-                            <div>
-                                <label for="{{ form.difficult.id_for_label }}" class="left-label">Difficult</label>
-                                {{ form.difficult }}
-                            </div>
+
                             <input type="hidden" name="user" value="{{ request.user.pk }}">
-                            <button type="submit">Submit</button>
-                            <!--
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                                <input type="hidden" name="user" value="{{ request.user.pk }}">
-                                <button type="submit">Submit</button> -->
+                            <div class="form-group text-center my-3">
+                                <button type="submit" >Submit</button>
+                            </div>
                             </form>
                     </div>
                 </div>
