@@ -35,7 +35,7 @@ class CustomLoginView(LoginView):
     redirect_authenticated_user = True
     
     def get_success_url(self):
-        return reverse_lazy('reviews')
+        return reverse_lazy('homePage')
     
 class RegisterPage(FormView):
     """
@@ -47,7 +47,7 @@ class RegisterPage(FormView):
     template_name = 'reviews/register.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
-    success_url = reverse_lazy('reviews')
+    success_url = reverse_lazy('homePage')
     
     def form_valid(self, form):
         user = form.save()
@@ -61,30 +61,9 @@ class RegisterPage(FormView):
     
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect('reviews')
+            return redirect('homePage')
         return super(RegisterPage, self).get(*args, **kwargs)
             
-    
-    
-    
-
-class allReviews(ListView):
-    """
-    Displays a list of all reviews
-    
-    Context variable in template -> "reviews"
-    Template file -> "reviews/allReviews.html"
-    """
-    model = review
-    context_object_name = "reviews"
-    template_name = "reviews/allReviews.html"
-    paginate_by = 15
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['depts'] = department.objects.all()
-        return context
-
 
 
 class HomeView(ListView):
@@ -103,16 +82,6 @@ class HomeView(ListView):
         context['depts'] = department.objects.all()
         return context
 
-
-class deptView(ListView):
-    """
-
-    Context variable in template -> "reviews"
-    Template file -> "reviews/allReviews.html"
-    """
-    model = department
-    context_object_name = "depts"
-    template_name = "reviews/deptView.html"
 
 
 class searchReviews(ListView):
@@ -182,7 +151,7 @@ class createReview(LoginRequiredMixin, CreateView):
     fields = ('course', 'instructor', 'reviewText', 'anon','textbook','fun','interesting','difficult')
     #review.user = request.user
     ##below is where we send the user after successfully submitting form
-    success_url = reverse_lazy('reviews')
+    success_url = reverse_lazy('homePage')
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
