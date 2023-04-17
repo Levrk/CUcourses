@@ -17,7 +17,7 @@
 --gradient-vertical: linear-gradient(rgb(187, 0, 0), rgb(255, 255, 255));
 --gradient-horizontal: linear-gradient(to right,rgb(187, 0, 0), rgb(255, 255, 255));
 --shadow: 2px 4px 4px hsla(0, 0%, 0%, 0.305);
---body-font: 'Crimson Text', Times, serif;
+--body-font: 'Source Serif Pro', Times, serif;
 --heading-font: 'Crimson Text', Times, serif;
 }
 
@@ -36,7 +36,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Defines form formatting */
 form {
     
-    color: var(--text-color);
+    color: black;
     /*box-shadow: var(--shadow);*/
 }
 
