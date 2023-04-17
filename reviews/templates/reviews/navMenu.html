@@ -50,12 +50,12 @@
                 <li>
                     {%if request.user.is_authenticated%}
                     <a id="logout" href="{% url 'logout' %}" class="username-tooltip noHover mt-2" data-username="{{ request.user.username }}"> 
-                        <h3><i class="bi bi-box-arrow-right"></i></h3>
+                        <h2><i class="bi bi-box-arrow-right"></i></h2>
                     </a>
                     
                     {%else%}
                     <a id="login" href ="{% url 'login' %}" class="noHover mt-2">
-                        <h3><i class="bi bi-box-arrow-in-right"></i></h3>
+                        <h2><i class="bi bi-box-arrow-in-right"></i></h2>
                     </a>
                     {% endif %}
                 </li>

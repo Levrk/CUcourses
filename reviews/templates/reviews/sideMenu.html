@@ -1,11 +1,26 @@
 {% load static %}
 
-<div class="sidebar" style="height: 97%; padding-top: 3%;">
+<div class="sidebar" style="height: 100%; padding-top: 0%;">
     <!-- Sidebar content-->
     <!-- Dept table-->
     
     <div id="departmentTable" class="deptTableContainer deptTableHidden">
-        <table  class="deptTable table table-sm border border-2">
+        <div class="container text-dark text-center p-2">
+            
+            <div class="row">
+                <div class="col-2 p-0 text-right d-flex align-items-center justify-content-end">
+                    <h3>-</h3>
+                </div>
+                <div class="col-8 p-0">
+                    <h3 class="my-3">Search by Departments</h3>
+                </div>
+                <div class="col-2 p-0 text-center d-flex align-items-center">
+                    <h3>-</h3>
+                </div>
+            </div>
+        </div>
+
+        <table  class="deptTable table table-sm border border-2 mb-2">
             {% for dept in depts%}  
                 <tr>
                     <td><a class="department-button" href="{% url 'search_reviews' %}?search_terms={{ dept.deptName }}&page=1">{{dept.deptName}}</a></td>
@@ -15,7 +30,9 @@
             {% endfor %}
         </table>
     </div>
-    <button id='toggle' class="sidebar-toggle" onclick="toggle()">></button>
+    <button id='toggle' class="sidebar-toggle p-0 border-end " onclick="toggle()">
+        <i class="bi bi-arrow-right-circle"></i>
+    </button>
     <!-- End dept table-->
 </div>
 
@@ -24,20 +41,20 @@
 var visible = false;
 
 function toggle() {
-element = document.getElementById("departmentTable");
-toggleButton = document.getElementById("toggle");
-if (visible == false) {
-    element.classList.remove("deptTableHidden");
-    element.classList.add("deptTableExpanded");
-    toggleButton.innerHTML = "<";
-    visible = true;
-}
-else {
-    element.classList.remove("deptTableExpanded");
-    element.classList.add("deptTableHidden");
-    visible = false;
-    toggleButton.innerHTML = ">";
-}
+    element = document.getElementById("departmentTable");
+    toggleButton = document.getElementById("toggle");
+    if (visible == false) {
+        element.classList.remove("deptTableHidden");
+        element.classList.add("deptTableExpanded");
+        toggleButton.innerHTML = '<i class="bi bi-arrow-left-circle"></i>';
+        visible = true;
+    }
+    else {
+        element.classList.remove("deptTableExpanded");
+        element.classList.add("deptTableHidden");
+        visible = false;
+        toggleButton.innerHTML = '<i class="bi bi-arrow-right-circle"></i>';
+    }
 }
 
 </script>

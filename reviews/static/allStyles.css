@@ -30,6 +30,7 @@ body{
 /* Defines font for all headers*/
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--heading-font);
+    color: var(--text-color);
     /*text-align: center;*/
 }
 
@@ -308,7 +309,7 @@ a.view-button:hover {
     background-color: var(--lightgray);
     color: rgb(0, 0, 0);
     border: none;
-    width: 1.5vw;
+    width: 2vw;
     height: 100%;
 }
 
