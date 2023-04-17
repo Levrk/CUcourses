@@ -3,19 +3,19 @@
     {% load static %}
     <link rel="stylesheet"  type="text/css" href="{% static 'allStyles.css' %}">
     <head>
-    <style>
-      body {
-        background-color: rgb(241, 241, 241) !important;
-      }
-      input[type="text"] {
-        width: 50vw;
-        border-radius: 10px;
-      }
-      button[id="search-button"]{
-        align-self: center;
-      }
-    </style>
-  </head>
+      <style>
+        body {
+          background-color: rgb(241, 241, 241) !important;
+        }
+        input[type="text"] {
+          width: 50vw;
+          border-radius: 10px;
+        }
+        button[id="search-button"]{
+          align-self: center;
+        }
+      </style>
+    </head>
 
 
 
@@ -33,27 +33,27 @@
           <div class="d-flex flex-column belowNav justify-content-center align-items-center h-100">
             <br>
             
-          <div class="p-2"><h1>Welcome to CUCourses!</h1> </div>
-          <div class="mainsearch flex-fill vh-33">
-            <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
-              <input id="search-input" type="text" name="search_terms" placeholder="Search for Course ID or Department" style="box-shadow: 2px 4px 4px hsla(0, 0%, 0%, 0.305);" class="input-group-text form-control form-control-lg" width=100% >
-              <input type="hidden" name="page" value="1">
-              <div class="text-center">
-              <button id="search-button" class="btn btn-light btn-lg mt-1 align-items-center" type="submit">Search</button>
+            <div class="p-2"><h1>Welcome to CUCourses!</h1> </div>
+              <div class="mainsearch flex-fill vh-33">
+                <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
+                  <input id="search-input" type="text" name="search_terms" placeholder="Search for Course ID or Department" style="box-shadow: 2px 4px 4px hsla(0, 0%, 0%, 0.305);" class="input-group-text form-control form-control-lg" width=100% >
+                  <input type="hidden" name="page" value="1">
+                  <div class="text-center">
+                    <button id="search-button" class="btn btn-light btn-lg mt-3 align-items-center border" type="submit">Search</button>
+                  </div>
+                </form>
               </div>
-            </form>
-         </div>
 
-         <br>
-         <br>
+            <br>
+            <br>
 
-         <!--Shows 3 most recent reviews-->
-         <div class="p-2"><h4>Create Your Own Reviews!</h4> </div>   
-          <div class="tinyContentTable col-9">
-              {% include "./recentReviewTable.html" %} 
-              
+            <!--Shows 3 most recent reviews-->
+            <div class="p-2"><h4>Create Your Own Reviews!</h4> </div>   
+            <div class="tinyContentTable col-9 bg-light bg-transparent">
+                {% include "./recentReviewTable.html" %} 
+                  
+            </div>
           </div>
-        </div>
         
       </body>
 
