@@ -36,7 +36,16 @@
           <div class="d-flex flex-column belowNav justify-content-center align-items-center h-100">
             <br>
             
-            <div class="p-2"><h1>Welcome to CUCourses!</h1> </div>
+            <div class="p-2">
+              
+              {% if user.is_authenticated %}
+                <h1>Hello {{ user.username }}, Welcome to CUCourses!</h1>
+              {% else %}
+                <h1>Welcome to CUCourses!</h1>
+              {% endif %}
+            
+            
+            </div>
               <div class="mainsearch flex-fill vh-33">
                 <form action="{% url 'search_reviews' %}" method="get" autocapitalize="on">
                   <input id="search-input" type="text" name="search_terms" placeholder="Search for Course ID or Department" style="box-shadow: 2px 4px 4px hsla(0, 0%, 0%, 0.305);" class="input-group-text form-control form-control-lg" width=100% >
@@ -51,7 +60,7 @@
             <br>
 
             <!--Shows 3 most recent reviews-->
-            <div class="p-2"><h4>Create Your Own Reviews!</h4> </div>   
+            <div class="p-2"><h4>- Latest Reviews -</h4> </div>   
             <div class="tinyContentTable col-9 bg-light bg-transparent">
                 {% include "./recentReviewTable.html" %} 
                   
