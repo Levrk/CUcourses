@@ -140,6 +140,8 @@ a:hover {
     padding: 20px;
     background-color: var(--white);
     text-align: center;
+    border-radius: 10px;
+    font-family: var(--body-font);
 }
 
 /*End of box-related classes*/
@@ -204,6 +206,8 @@ padding: 5px;
     padding-top: 1%;
 }
 
+
+
 .contentTable {
     height: 92vh;
     display: flex;
@@ -250,6 +254,10 @@ a.view-button:hover {
     cursor: pointer;
     background-color: #d4d8dc;
     transition: all 0.3s ease-in-out;
+}
+
+.card-text {
+    font-family: var(--body-font); 
 }
 
 
@@ -332,6 +340,10 @@ a.department-button:hover {
 
 /* Styling for Home Menu */
 
+.homeScroll {
+    height: 91vh; 
+    overflow: auto; /* Allows scrolling */
+  }
 
 /*  Styling for the NAV Menu. mainNav is the id */
     
