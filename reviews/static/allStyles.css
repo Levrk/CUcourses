@@ -140,6 +140,8 @@ a:hover {
     padding: 20px;
     background-color: var(--white);
     text-align: center;
+    border-radius: 10px;
+    font-family: var(--body-font);
 }
 
 /*End of box-related classes*/
@@ -252,6 +254,10 @@ a.view-button:hover {
     cursor: pointer;
     background-color: #d4d8dc;
     transition: all 0.3s ease-in-out;
+}
+
+.card-text {
+    font-family: var(--body-font); 
 }
 
 

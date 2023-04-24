@@ -20,7 +20,7 @@
                     <h3> {{review.course}} - {{review.course.courseName}} </h3>
                     <h3> Course Instructor: {{review.instructor}} </h3>
                     
-                    <div class = "innerlbox ">
+                    <div class = "innerlbox border-rounded border">
 
                         <p id="review-text" style="font-size: 20px;">{{review.reviewText}}</p>
 
@@ -46,9 +46,9 @@
                     </div>
 
                     {% if review.anon %}
-                    <h3> Reviewed by: Anonymous </h3>
+                    <h4> Reviewed by: Anonymous </h4>
                     {% else %}
-                    <h3> Reviewed by: {{review.user}} </h3>
+                    <h4> Reviewed by: {{review.user}} </h4>
                     {% endif %}
 
                     
