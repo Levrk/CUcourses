@@ -35,17 +35,17 @@ class course(models.Model):
 class review(models.Model):
     """
     (A model for storing course reviews)
-
     user -> Instance of the [User] model
     course -> Instance of the [course] model
     instructor -> str : Teacher fname & lname
     reviewText -> str : The review itself
     anon -> bool : Does the user want their name displayed
     created -> Date & time of submission
-    good - > needswork
-    fun - > needswork
-    """
-    #nulls should be false in production
+    fun - > how fun was this course 1-5
+    interesting - > how interesting was this course 1-5
+    difficult - > how difficult was this course 1-5
+    """ 
+    CHOICES = (('1', '1'), ('2', '2'), ('3', '3'),('4', '4'), ('5', '5'))
     user = models.ForeignKey(User, on_delete=models.CASCADE, default="Anonymous")
     course = models.ForeignKey(course,on_delete=models.CASCADE,null=True)
     instructor = models.CharField(max_length=30)
@@ -53,14 +53,6 @@ class review(models.Model):
     anon = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     textbook = models.BooleanField(default=True)
-    
-    CHOICES = (
-        ('1', '1'),
-        ('2', '2'),
-        ('3', '3'),
-        ('4', '4'),
-        ('5', '5'),
-    )
     fun = models.CharField(max_length=1, choices=CHOICES,default='3')
     interesting = models.CharField(max_length=1, choices=CHOICES,default='3')
     difficult = models.CharField(max_length=1, choices=CHOICES,default='3')
